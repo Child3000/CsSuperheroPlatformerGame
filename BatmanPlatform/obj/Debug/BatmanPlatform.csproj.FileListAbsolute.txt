@@ -1,0 +1,10 @@
+D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\bin\Debug\BatmanPlatform.exe.config
+D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\bin\Debug\BatmanPlatform.exe
+D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\bin\Debug\BatmanPlatform.pdb
+D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\obj\Debug\BatmanPlatform.csprojAssemblyReference.cache
+D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\obj\Debug\BatmanPlatform.Form1.resources
+D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\obj\Debug\BatmanPlatform.Properties.Resources.resources
+D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\obj\Debug\BatmanPlatform.csproj.GenerateResource.cache
+D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\obj\Debug\BatmanPlatform.csproj.CoreCompileInputs.cache
+D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\obj\Debug\BatmanPlatform.exe
+D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\obj\Debug\BatmanPlatform.pdb

@@ -24,8 +24,8 @@ namespace BatmanPlatform
 
         #endregion
 
-        int platformSpeed = 10;
         Random rnd = new Random();
+        int platformSpeed = 10;
 
 
         public Form1()
@@ -340,24 +340,5 @@ namespace BatmanPlatform
             allowFire = true;
             shootRateTick.Stop();
         }
-
-        //private void LaserTick(object sender, EventArgs e)
-        //{
-        //    if (CharacterProperties.LaserList.Count > 0)
-        //    {
-        //        for (int i=0; i < CharacterProperties.LaserList.Count; i++)
-        //        {
-        //            CharacterProperties.LaserList[i].Left += (int)CharacterProperties.WeaponSpeed;
-
-        //            if (CharacterProperties.LaserList[i].Location.X > 1050)
-        //            {
-        //                CharacterProperties.LaserList[i].Dispose();
-        //                this.Controls.RemoveAt(i);
-        //                CharacterProperties.LaserList.Remove(CharacterProperties.LaserList[i]);
-        //            }
-        //        }
-        //    }
-
-        //}
     }
 }

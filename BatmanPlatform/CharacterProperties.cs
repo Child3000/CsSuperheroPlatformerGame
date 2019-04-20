@@ -23,7 +23,7 @@ public enum Weapon
     FlyingBat,          // Batman
     HighSpeedLaser,     // Superman
     BeamLaser,          // Supergirl
-    Dash                // Catwoman
+    PurpleLaser         // Catwoman
 }
 
 namespace BatmanPlatform
@@ -253,7 +253,7 @@ namespace BatmanPlatform
                     shootRate = 1500;   // slowest
                     break;
 
-                case Weapon.Dash:
+                case Weapon.PurpleLaser:
 
                     specialAbilityImage = Properties.Resources.purpleBeam;
                     weaponSpeed = 25.0f;
@@ -261,11 +261,6 @@ namespace BatmanPlatform
                     shootRate = 1000;   // normal
                     break;
             }
-        }
-
-        public static void PerformSpecialAbility()
-        {
-
         }
     }
 }

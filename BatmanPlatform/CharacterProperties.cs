@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 
+
 public enum HeroType
 {
     Unknown,
     Batman,
     Catwoman,
     Superman,
-    Supergirl
+    WonderWoman,
+    Speedy
 }
 
 public enum Weapon
@@ -24,12 +26,13 @@ public enum Weapon
     Dash                // Catwoman
 }
 
-
 namespace BatmanPlatform
 {
     // This class is responsible to provide all properties of a hero / heroine
     class CharacterProperties
     {
+        private static readonly int CONST_MIN_HEALTH = 0;
+
         private static int health;
 
         private static int gravity;
@@ -43,6 +46,8 @@ namespace BatmanPlatform
         private static Weapon weapon;
 
         private static Bitmap[] heroImage = new Bitmap[2];
+
+
 
         public static void InitializePropertiesValue()
         {
@@ -66,6 +71,7 @@ namespace BatmanPlatform
                 return heroImage;
             }
         }
+
         public static HeroType heroType
         {
             set { type = value; }
@@ -113,6 +119,17 @@ namespace BatmanPlatform
             get { return alreadyIsGrounded; }
         }
 
+        public static int MIN_HEALTH
+        {
+            get { return CONST_MIN_HEALTH; }
+        }
+
+
+
+        public static void ReverseGravity()
+        {
+            gravity = -gravity;
+        }
 
         public static void ReachGround()
         {
@@ -132,6 +149,40 @@ namespace BatmanPlatform
         public static void RestrictImageOverlap()
         {
             alreadyIsGrounded = false;
+        }
+
+        public static void UpdateHealth(int value, ref List<PictureBox> healthVisibleList, ref List<PictureBox> healthInvisibleList)
+        {
+            health -= value;
+
+            if (healthVisibleList.Count >= value)
+            {
+                for (int i = 0; i < value; i++)
+                {
+                    healthInvisibleList[healthVisibleList.Count - 1] = healthVisibleList[healthVisibleList.Count - 1];
+                    healthInvisibleList[healthVisibleList.Count - 1].Visible = false;
+                    healthVisibleList.RemoveAt(healthVisibleList.Count - 1);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < healthVisibleList.Count; i++)
+                {
+                    healthInvisibleList[healthVisibleList.Count - 1] = healthVisibleList[healthVisibleList.Count - 1];
+                    healthInvisibleList[healthVisibleList.Count - 1].Visible = false;
+                    healthVisibleList.RemoveAt(healthVisibleList.Count - 1);
+                }
+            }
+        }
+
+        public static bool isDeath()
+        {
+            if (Health < CharacterProperties.MIN_HEALTH)
+            {
+                UIManager.gameOver = true;
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -83,9 +83,59 @@ namespace BatmanPlatform.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blackHeart {
+            get {
+                object obj = ResourceManager.GetObject("blackHeart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap catwoman_1 {
+            get {
+                object obj = ResourceManager.GetObject("catwoman_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap catwoman_2 {
+            get {
+                object obj = ResourceManager.GetObject("catwoman_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap city {
             get {
                 object obj = ResourceManager.GetObject("city", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap diamondHeart {
+            get {
+                object obj = ResourceManager.GetObject("diamondHeart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap evilHeart {
+            get {
+                object obj = ResourceManager.GetObject("evilHeart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,6 +153,16 @@ namespace BatmanPlatform.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap redHeart {
+            get {
+                object obj = ResourceManager.GetObject("redHeart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap selectBatman {
             get {
                 object obj = ResourceManager.GetObject("selectBatman", resourceCulture);
@@ -113,9 +173,49 @@ namespace BatmanPlatform.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap selectCatwoman {
+            get {
+                object obj = ResourceManager.GetObject("selectCatwoman", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap selectSpeedy {
+            get {
+                object obj = ResourceManager.GetObject("selectSpeedy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap selectSuperman {
             get {
                 object obj = ResourceManager.GetObject("selectSuperman", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap selectWonderWoman {
+            get {
+                object obj = ResourceManager.GetObject("selectWonderWoman", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sexyHeart {
+            get {
+                object obj = ResourceManager.GetObject("sexyHeart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +256,26 @@ namespace BatmanPlatform.Properties {
         internal static System.Drawing.Bitmap superman_2 {
             get {
                 object obj = ResourceManager.GetObject("superman_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wonderwoman_1 {
+            get {
+                object obj = ResourceManager.GetObject("wonderwoman_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wonderwoman_2 {
+            get {
+                object obj = ResourceManager.GetObject("wonderwoman_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

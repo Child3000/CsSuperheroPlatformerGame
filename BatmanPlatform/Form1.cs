@@ -16,8 +16,8 @@ namespace BatmanPlatform
 
         Hero newHero;
         List<Control> heroSelectionList = new List<Control>();
-
-        bool gameOver = false;
+        List<PictureBox> healthVisibleList = new List<PictureBox>();
+        List<PictureBox> healthInvisibleList = new List<PictureBox>();
 
         #endregion
 
@@ -42,21 +42,28 @@ namespace BatmanPlatform
             }
 
             #endregion
+
+            #region Add Control to Health UI
+
+            ResetHealthControl();
+
+            #endregion
         }
 
         private void IsKeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space && CharacterProperties.IsGrounded)
             {
-                CharacterProperties.Gravity = -(CharacterProperties.Gravity);
+                CharacterProperties.ReverseGravity();
                 CharacterProperties.LeaveGround();
                 CharacterProperties.AllowImageConversion();
             }
 
-            if (gameOver && e.KeyCode == Keys.R)
+            if (UIManager.gameOver && e.KeyCode == Keys.R)
             {
                 RestartGame();
             }
+
         }
 
         private void Game_Tick(object sender, EventArgs e)
@@ -107,9 +114,21 @@ namespace BatmanPlatform
 
             if (player.Top < -40 || player.Top > ClientSize.Height)
             {
-                gameTimer.Stop();
-                gameOver = true;
-                lblScore.Text += " -- Press R to reset";
+                CharacterProperties.UpdateHealth(1, ref healthVisibleList, ref healthInvisibleList);
+
+                if (CharacterProperties.isDeath())
+                {
+                    gameTimer.Stop();
+                    lblScore.Text += " -- Press R to reset";
+                }
+
+                else
+                {
+                    CharacterProperties.AllowImageConversion();
+                    Respawn();
+                }
+
+
             }
         }
 
@@ -133,6 +152,7 @@ namespace BatmanPlatform
         private void OnMouseUp_Superman(object sender, MouseEventArgs e)
         {
             ChangeVisibilityHeroSelection();
+            ResetHealthControl();
             KeyPreview = true;
             player.Image = CharacterProperties.HeroImage[0];
             gameTimer.Start();
@@ -146,6 +166,49 @@ namespace BatmanPlatform
         private void OnMouseUp_Batman(object sender, MouseEventArgs e)
         {
             ChangeVisibilityHeroSelection();
+            ResetHealthControl();
+            KeyPreview = true;
+            player.Image = CharacterProperties.HeroImage[0];
+            gameTimer.Start();
+        }
+
+        private void OnMouseDown_Catwoman(object sender, MouseEventArgs e)
+        {
+            newHero = CharacterCreation.CreateCustomCharacter(HeroType.Catwoman);
+        }
+
+        private void OnMouseUp_Catwoman(object sender, MouseEventArgs e)
+        {
+            ChangeVisibilityHeroSelection();
+            ResetHealthControl();
+            KeyPreview = true;
+            player.Image = CharacterProperties.HeroImage[0];
+            gameTimer.Start();
+        }
+
+        private void OnMouseDown_WonderWoman(object sender, MouseEventArgs e)
+        {
+            newHero = CharacterCreation.CreateCustomCharacter(HeroType.WonderWoman);
+        }
+
+        private void OnMouseUp_WonderWoman(object sender, MouseEventArgs e)
+        {
+            ChangeVisibilityHeroSelection();
+            ResetHealthControl();
+            KeyPreview = true;
+            player.Image = CharacterProperties.HeroImage[0];
+            gameTimer.Start();
+        }
+
+        private void OnMouseDown_Speedy(object sender, MouseEventArgs e)
+        {
+            newHero = CharacterCreation.CreateCustomCharacter(HeroType.Speedy);
+        }
+
+        private void OnMouseUp_Speedy(object sender, MouseEventArgs e)
+        {
+            ChangeVisibilityHeroSelection();
+            ResetHealthControl();
             KeyPreview = true;
             player.Image = CharacterProperties.HeroImage[0];
             gameTimer.Start();
@@ -153,6 +216,60 @@ namespace BatmanPlatform
 
         #endregion
 
+
+        private void ResetHealthControl()
+        {
+            healthVisibleList.Clear();
+            healthInvisibleList.Clear();
+
+            #region Visibility
+
+            Heart_0.Visible = true;
+            Heart_1.Visible = true;
+            Heart_2.Visible = true;
+            Heart_3.Visible = false;
+            Heart_4.Visible = false;
+
+            #endregion
+
+            #region Number of Health To Be Displayed
+
+            // Assume every hero has minimum amount of 3 health
+            healthVisibleList.Insert(0, Heart_0);
+            healthVisibleList.Insert(1, Heart_1);
+            healthVisibleList.Insert(2, Heart_2);
+
+            if (CharacterProperties.Health >= 4)
+            {
+                healthVisibleList.Insert(3, Heart_3);
+                Heart_3.Visible = true;
+            }
+
+            if (CharacterProperties.Health >= 5)
+            {
+                healthVisibleList.Insert(4, Heart_4);
+                Heart_4.Visible = true;
+            }
+
+            #endregion
+
+            #region Health Image
+
+            foreach (PictureBox pBox in healthVisibleList)
+            {
+                pBox.Image = UIManager.HeroHealthImage;
+            }
+
+            #endregion
+
+            healthInvisibleList = new List<PictureBox>() { null, null, null, null, null };
+        }
+
+        private void Respawn()
+        {
+            player.Left = 147;
+            player.Top = 131;
+        }
 
         private void RestartGame()
         {
@@ -181,5 +298,9 @@ namespace BatmanPlatform
             KeyPreview = false;
             ChangeVisibilityHeroSelection();
         }
+
+
+
+       
     }
 }

@@ -41,6 +41,17 @@
             this.displaySuperman = new System.Windows.Forms.PictureBox();
             this.selectBatman = new System.Windows.Forms.Button();
             this.selectSuperman = new System.Windows.Forms.Button();
+            this.Heart_0 = new System.Windows.Forms.PictureBox();
+            this.Heart_1 = new System.Windows.Forms.PictureBox();
+            this.Heart_2 = new System.Windows.Forms.PictureBox();
+            this.Heart_3 = new System.Windows.Forms.PictureBox();
+            this.Heart_4 = new System.Windows.Forms.PictureBox();
+            this.displaySpeedy = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.selectWonderWoman = new System.Windows.Forms.Button();
+            this.selectCatwoman = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2)).BeginInit();
@@ -49,6 +60,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.displayBatman)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.displaySuperman)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Heart_0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Heart_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Heart_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Heart_3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Heart_4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.displaySpeedy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // lblScore
@@ -133,9 +152,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(283, 12);
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox1.Location = new System.Drawing.Point(21, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(486, 297);
+            this.pictureBox1.Size = new System.Drawing.Size(985, 297);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "HeroSelection";
@@ -145,7 +165,7 @@
             this.displayBatman.BackColor = System.Drawing.SystemColors.Control;
             this.displayBatman.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.displayBatman.Image = global::BatmanPlatform.Properties.Resources.selectBatman;
-            this.displayBatman.Location = new System.Drawing.Point(354, 44);
+            this.displayBatman.Location = new System.Drawing.Point(443, 45);
             this.displayBatman.Name = "displayBatman";
             this.displayBatman.Size = new System.Drawing.Size(140, 132);
             this.displayBatman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -158,7 +178,7 @@
             this.displaySuperman.BackColor = System.Drawing.SystemColors.Control;
             this.displaySuperman.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.displaySuperman.Image = global::BatmanPlatform.Properties.Resources.selectSuperman;
-            this.displaySuperman.Location = new System.Drawing.Point(548, 44);
+            this.displaySuperman.Location = new System.Drawing.Point(637, 45);
             this.displaySuperman.Name = "displaySuperman";
             this.displaySuperman.Size = new System.Drawing.Size(140, 132);
             this.displaySuperman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -169,7 +189,7 @@
             // selectBatman
             // 
             this.selectBatman.Font = new System.Drawing.Font("Hobo Std", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectBatman.Location = new System.Drawing.Point(354, 205);
+            this.selectBatman.Location = new System.Drawing.Point(443, 206);
             this.selectBatman.Name = "selectBatman";
             this.selectBatman.Size = new System.Drawing.Size(125, 41);
             this.selectBatman.TabIndex = 9;
@@ -182,7 +202,7 @@
             // selectSuperman
             // 
             this.selectSuperman.Font = new System.Drawing.Font("Hobo Std", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectSuperman.Location = new System.Drawing.Point(548, 205);
+            this.selectSuperman.Location = new System.Drawing.Point(637, 206);
             this.selectSuperman.Name = "selectSuperman";
             this.selectSuperman.Size = new System.Drawing.Size(125, 41);
             this.selectSuperman.TabIndex = 10;
@@ -192,6 +212,139 @@
             this.selectSuperman.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown_Superman);
             this.selectSuperman.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnMouseUp_Superman);
             // 
+            // Heart_0
+            // 
+            this.Heart_0.BackColor = System.Drawing.Color.Transparent;
+            this.Heart_0.Location = new System.Drawing.Point(980, 273);
+            this.Heart_0.Name = "Heart_0";
+            this.Heart_0.Size = new System.Drawing.Size(46, 36);
+            this.Heart_0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Heart_0.TabIndex = 11;
+            this.Heart_0.TabStop = false;
+            this.Heart_0.Tag = "Heart";
+            // 
+            // Heart_1
+            // 
+            this.Heart_1.BackColor = System.Drawing.Color.Transparent;
+            this.Heart_1.Location = new System.Drawing.Point(934, 273);
+            this.Heart_1.Name = "Heart_1";
+            this.Heart_1.Size = new System.Drawing.Size(46, 36);
+            this.Heart_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Heart_1.TabIndex = 12;
+            this.Heart_1.TabStop = false;
+            this.Heart_1.Tag = "Heart";
+            // 
+            // Heart_2
+            // 
+            this.Heart_2.BackColor = System.Drawing.Color.Transparent;
+            this.Heart_2.Location = new System.Drawing.Point(888, 273);
+            this.Heart_2.Name = "Heart_2";
+            this.Heart_2.Size = new System.Drawing.Size(46, 36);
+            this.Heart_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Heart_2.TabIndex = 13;
+            this.Heart_2.TabStop = false;
+            this.Heart_2.Tag = "Heart";
+            // 
+            // Heart_3
+            // 
+            this.Heart_3.BackColor = System.Drawing.Color.Transparent;
+            this.Heart_3.Location = new System.Drawing.Point(842, 272);
+            this.Heart_3.Name = "Heart_3";
+            this.Heart_3.Size = new System.Drawing.Size(46, 36);
+            this.Heart_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Heart_3.TabIndex = 14;
+            this.Heart_3.TabStop = false;
+            this.Heart_3.Tag = "Heart";
+            // 
+            // Heart_4
+            // 
+            this.Heart_4.BackColor = System.Drawing.Color.Transparent;
+            this.Heart_4.Location = new System.Drawing.Point(796, 273);
+            this.Heart_4.Name = "Heart_4";
+            this.Heart_4.Size = new System.Drawing.Size(46, 36);
+            this.Heart_4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Heart_4.TabIndex = 15;
+            this.Heart_4.TabStop = false;
+            this.Heart_4.Tag = "Heart";
+            // 
+            // displaySpeedy
+            // 
+            this.displaySpeedy.BackColor = System.Drawing.SystemColors.Control;
+            this.displaySpeedy.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.displaySpeedy.Image = global::BatmanPlatform.Properties.Resources.selectSpeedy;
+            this.displaySpeedy.Location = new System.Drawing.Point(813, 45);
+            this.displaySpeedy.Name = "displaySpeedy";
+            this.displaySpeedy.Size = new System.Drawing.Size(140, 132);
+            this.displaySpeedy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.displaySpeedy.TabIndex = 16;
+            this.displaySpeedy.TabStop = false;
+            this.displaySpeedy.Tag = "HeroSelection";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Hobo Std", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(813, 206);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 41);
+            this.button1.TabIndex = 17;
+            this.button1.Tag = "HeroSelection";
+            this.button1.Text = "Select !";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown_Speedy);
+            this.button1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnMouseUp_Speedy);
+            // 
+            // selectWonderWoman
+            // 
+            this.selectWonderWoman.Font = new System.Drawing.Font("Hobo Std", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectWonderWoman.Location = new System.Drawing.Point(246, 205);
+            this.selectWonderWoman.Name = "selectWonderWoman";
+            this.selectWonderWoman.Size = new System.Drawing.Size(125, 41);
+            this.selectWonderWoman.TabIndex = 18;
+            this.selectWonderWoman.Tag = "HeroSelection";
+            this.selectWonderWoman.Text = "Select !";
+            this.selectWonderWoman.UseVisualStyleBackColor = true;
+            this.selectWonderWoman.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown_WonderWoman);
+            this.selectWonderWoman.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnMouseUp_WonderWoman);
+            // 
+            // selectCatwoman
+            // 
+            this.selectCatwoman.Font = new System.Drawing.Font("Hobo Std", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectCatwoman.Location = new System.Drawing.Point(61, 205);
+            this.selectCatwoman.Name = "selectCatwoman";
+            this.selectCatwoman.Size = new System.Drawing.Size(125, 41);
+            this.selectCatwoman.TabIndex = 19;
+            this.selectCatwoman.Tag = "HeroSelection";
+            this.selectCatwoman.Text = "Select !";
+            this.selectCatwoman.UseVisualStyleBackColor = true;
+            this.selectCatwoman.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown_Catwoman);
+            this.selectCatwoman.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnMouseUp_Catwoman);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox2.Image = global::BatmanPlatform.Properties.Resources.selectWonderWoman;
+            this.pictureBox2.Location = new System.Drawing.Point(246, 45);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(140, 132);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 20;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Tag = "HeroSelection";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox3.Image = global::BatmanPlatform.Properties.Resources.selectCatwoman;
+            this.pictureBox3.Location = new System.Drawing.Point(61, 45);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(140, 132);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 21;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Tag = "HeroSelection";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -199,6 +352,17 @@
             this.BackgroundImage = global::BatmanPlatform.Properties.Resources.city;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1045, 321);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.selectCatwoman);
+            this.Controls.Add(this.selectWonderWoman);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.displaySpeedy);
+            this.Controls.Add(this.Heart_4);
+            this.Controls.Add(this.Heart_3);
+            this.Controls.Add(this.Heart_2);
+            this.Controls.Add(this.Heart_1);
+            this.Controls.Add(this.Heart_0);
             this.Controls.Add(this.selectSuperman);
             this.Controls.Add(this.selectBatman);
             this.Controls.Add(this.displaySuperman);
@@ -223,6 +387,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.displayBatman)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.displaySuperman)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Heart_0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Heart_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Heart_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Heart_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Heart_4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.displaySpeedy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,6 +414,17 @@
         private System.Windows.Forms.PictureBox displaySuperman;
         private System.Windows.Forms.Button selectBatman;
         private System.Windows.Forms.Button selectSuperman;
+        private System.Windows.Forms.PictureBox Heart_0;
+        private System.Windows.Forms.PictureBox Heart_1;
+        private System.Windows.Forms.PictureBox Heart_2;
+        private System.Windows.Forms.PictureBox Heart_3;
+        private System.Windows.Forms.PictureBox Heart_4;
+        private System.Windows.Forms.PictureBox displaySpeedy;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button selectWonderWoman;
+        private System.Windows.Forms.Button selectCatwoman;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 

@@ -132,16 +132,52 @@
     <None Include="Resources\selectSuperman.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\superman_2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\superman_1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blackHeart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glassHeart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\catwoman_1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\catwoman_2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wonderwoman_1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wonderwoman_2.gif" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\speedman_1.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\speedman_2.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\superman_2.gif" />
+    <None Include="Resources\diamondHeart.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\superman_1.gif" />
+    <None Include="Resources\evilHeart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sexyHeart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selectWonderWoman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selectCatwoman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selectSpeedy.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

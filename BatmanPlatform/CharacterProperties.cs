@@ -37,9 +37,15 @@ namespace BatmanPlatform
 
         private static int gravity;
 
+        private static float weaponSpeed;
+
         private static bool isGrounded;
 
         private static bool alreadyIsGrounded;
+
+        private static int weaponDamage;
+
+        private static int shootRate;   // Counted in milliseconds
 
         private static HeroType type;
 
@@ -47,12 +53,18 @@ namespace BatmanPlatform
 
         private static Bitmap[] heroImage = new Bitmap[2];
 
+        private static Bitmap specialAbilityImage;
+
+        private static List<PictureBox> laserList = new List<PictureBox>();
 
 
         public static void InitializePropertiesValue()
         {
             health = 0;
             gravity = 0;
+            weaponSpeed = 0.0f;
+            weaponDamage = 0;
+            shootRate = 1000;
             isGrounded = false;
             alreadyIsGrounded = true;
 
@@ -70,6 +82,18 @@ namespace BatmanPlatform
             {
                 return heroImage;
             }
+        }
+
+        public static Bitmap SpecialAbilityImage
+        {
+            get { return specialAbilityImage; }
+        }
+
+        public static List<PictureBox> LaserList
+        {
+            set { laserList = value; }
+
+            get { return laserList; }
         }
 
         public static HeroType heroType
@@ -102,6 +126,22 @@ namespace BatmanPlatform
             {
                 return gravity;
             }
+        }
+
+        public static float WeaponSpeed
+        {
+            get { return weaponSpeed; }
+        }
+
+        public static int WeaponDamage
+        {
+            get { return weaponDamage;
+ }
+        }
+
+        public static int ShootRate
+        {
+            get { return shootRate; }
         }
 
         public static bool IsGrounded
@@ -183,6 +223,49 @@ namespace BatmanPlatform
                 return true;
             }
             return false;
+        }
+
+        public static void SettingSpecialAbility()
+        {
+            switch (heroWeapon)
+            {
+                case Weapon.FlyingBat:
+
+                    specialAbilityImage = Properties.Resources.flyingBat;
+                    weaponSpeed = 12.0f;
+                    weaponDamage = 3;   // Lowest Damage
+                    shootRate = 500;    // fast
+                    break;
+
+                case Weapon.HighSpeedLaser:
+
+                    specialAbilityImage = Properties.Resources.highSpeedLaser;
+                    weaponSpeed = 20.0f;
+                    weaponDamage = 5;   // Normal Damage
+                    shootRate = 400;    // fastest
+                    break;
+
+                case Weapon.BeamLaser:
+
+                    specialAbilityImage = Properties.Resources.lightning;
+                    weaponSpeed = 10.0f;
+                    weaponDamage = 12;  // Highest Damage
+                    shootRate = 1500;   // slowest
+                    break;
+
+                case Weapon.Dash:
+
+                    specialAbilityImage = Properties.Resources.purpleBeam;
+                    weaponSpeed = 25.0f;
+                    weaponDamage = 7;   // High Damage
+                    shootRate = 1000;   // normal
+                    break;
+            }
+        }
+
+        public static void PerformSpecialAbility()
+        {
+
         }
     }
 }

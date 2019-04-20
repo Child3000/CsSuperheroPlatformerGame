@@ -44,7 +44,7 @@ namespace BatmanPlatform
                 case HeroType.Speedy:
                     CharacterProperties.Health = 3;
                     CharacterProperties.Gravity = 5;
-                    CharacterProperties.heroWeapon = Weapon.Dash;
+                    CharacterProperties.heroWeapon = Weapon.PurpleLaser;
                     CharacterProperties.HeroImage[0] = Properties.Resources.speedman_1;
                     CharacterProperties.HeroImage[1] = Properties.Resources.speedman_2;
 
@@ -66,7 +66,7 @@ namespace BatmanPlatform
                 case HeroType.Catwoman:
                     CharacterProperties.Health = 4;
                     CharacterProperties.Gravity = 3;
-                    CharacterProperties.heroWeapon = Weapon.Dash;
+                    CharacterProperties.heroWeapon = Weapon.PurpleLaser;
 
                     CharacterProperties.HeroImage[0] = Properties.Resources.catwoman_1;
                     CharacterProperties.HeroImage[1] = Properties.Resources.catwoman_2;
@@ -75,7 +75,7 @@ namespace BatmanPlatform
 
                     break;
             }
-
+            CharacterProperties.SettingSpecialAbility();
             return new Hero();
         }
     }

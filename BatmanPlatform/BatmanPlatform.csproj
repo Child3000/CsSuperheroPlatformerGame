@@ -55,6 +55,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Hero.cs" />
+    <Compile Include="Laser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIManager.cs" />
@@ -162,12 +163,6 @@
     <None Include="Resources\speedman_2.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\diamondHeart.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\evilHeart.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\sexyHeart.png" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +173,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\selectSpeedy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flyingBat.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smoke_1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smoke_2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\highSpeedLaser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diamondHeart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\evilHeart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\catwoman_beam.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

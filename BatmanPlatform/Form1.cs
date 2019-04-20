@@ -19,6 +19,9 @@ namespace BatmanPlatform
         List<PictureBox> healthVisibleList = new List<PictureBox>();
         List<PictureBox> healthInvisibleList = new List<PictureBox>();
 
+        Timer shootRateTick = new Timer();
+        bool allowFire = true;
+
         #endregion
 
         int platformSpeed = 10;
@@ -30,6 +33,13 @@ namespace BatmanPlatform
             InitializeComponent();
             UIManager.InitializeSetting(ref lblScore);
             player.Left = 80;
+
+            #region Initialize Shoot Rate
+
+            // Tick is controlled by Condition of Shoot Event   //
+            shootRateTick.Tick += new EventHandler(tm_ShootRateTick);
+
+            #endregion
 
             #region Add Control to HeroSelection Menu
 
@@ -52,6 +62,7 @@ namespace BatmanPlatform
 
         private void IsKeyDown(object sender, KeyEventArgs e)
         {
+            //  Jump    //
             if (e.KeyCode == Keys.Space && CharacterProperties.IsGrounded)
             {
                 CharacterProperties.ReverseGravity();
@@ -62,6 +73,21 @@ namespace BatmanPlatform
             if (UIManager.gameOver && e.KeyCode == Keys.R)
             {
                 RestartGame();
+            }
+
+            //  Fire with rate  //
+            if (allowFire && e.KeyCode == Keys.Z)
+            {
+                Shoot();
+
+                allowFire = false;
+                shootRateTick.Start();
+            }
+
+            //  Dash On Air   //    //  After Dash, Push Gravity Down   //
+            if (e.KeyCode == Keys.C && !CharacterProperties.IsGrounded)
+            {
+                
             }
 
         }
@@ -155,6 +181,7 @@ namespace BatmanPlatform
             ResetHealthControl();
             KeyPreview = true;
             player.Image = CharacterProperties.HeroImage[0];
+            shootRateTick.Interval = CharacterProperties.ShootRate;
             gameTimer.Start();
         }
 
@@ -169,6 +196,7 @@ namespace BatmanPlatform
             ResetHealthControl();
             KeyPreview = true;
             player.Image = CharacterProperties.HeroImage[0];
+            shootRateTick.Interval = CharacterProperties.ShootRate;
             gameTimer.Start();
         }
 
@@ -183,6 +211,7 @@ namespace BatmanPlatform
             ResetHealthControl();
             KeyPreview = true;
             player.Image = CharacterProperties.HeroImage[0];
+            shootRateTick.Interval = CharacterProperties.ShootRate;
             gameTimer.Start();
         }
 
@@ -197,6 +226,7 @@ namespace BatmanPlatform
             ResetHealthControl();
             KeyPreview = true;
             player.Image = CharacterProperties.HeroImage[0];
+            shootRateTick.Interval = CharacterProperties.ShootRate;
             gameTimer.Start();
         }
 
@@ -211,6 +241,7 @@ namespace BatmanPlatform
             ResetHealthControl();
             KeyPreview = true;
             player.Image = CharacterProperties.HeroImage[0];
+            shootRateTick.Interval = CharacterProperties.ShootRate;
             gameTimer.Start();
         }
 
@@ -299,8 +330,34 @@ namespace BatmanPlatform
             ChangeVisibilityHeroSelection();
         }
 
+        private void Shoot()
+        {
+            Laser laser = new Laser(player, this);
+        }
 
+        private void tm_ShootRateTick(object sender, EventArgs e)
+        {
+            allowFire = true;
+            shootRateTick.Stop();
+        }
 
-       
+        //private void LaserTick(object sender, EventArgs e)
+        //{
+        //    if (CharacterProperties.LaserList.Count > 0)
+        //    {
+        //        for (int i=0; i < CharacterProperties.LaserList.Count; i++)
+        //        {
+        //            CharacterProperties.LaserList[i].Left += (int)CharacterProperties.WeaponSpeed;
+
+        //            if (CharacterProperties.LaserList[i].Location.X > 1050)
+        //            {
+        //                CharacterProperties.LaserList[i].Dispose();
+        //                this.Controls.RemoveAt(i);
+        //                CharacterProperties.LaserList.Remove(CharacterProperties.LaserList[i]);
+        //            }
+        //        }
+        //    }
+
+        //}
     }
 }

@@ -8,3 +8,6 @@ D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\obj\Debug\BatmanPlatfor
 D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\obj\Debug\BatmanPlatform.csproj.CoreCompileInputs.cache
 D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\obj\Debug\BatmanPlatform.exe
 D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\obj\Debug\BatmanPlatform.pdb
+D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\obj\Debug\Interop.MediaPlayer.dll
+D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\obj\Debug\Interop.WMPLib.dll
+D:\Users\Documents\VS Code\BatmanPlatform\BatmanPlatform\obj\Debug\BatmanPlatform.csproj.ResolveComReference.cache

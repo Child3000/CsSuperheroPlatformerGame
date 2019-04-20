@@ -12,9 +12,15 @@ namespace BatmanPlatform
 {
     public partial class Form1 : Form
     {
-        bool landed = false;
-        int gravity = 5;
-        int score = 0;
+        #region Experiment
+
+        Hero newHero;
+        List<Control> heroSelectionList = new List<Control>();
+
+        bool gameOver = false;
+
+        #endregion
+
         int platformSpeed = 10;
         Random rnd = new Random();
 
@@ -22,27 +28,40 @@ namespace BatmanPlatform
         public Form1()
         {
             InitializeComponent();
+            UIManager.InitializeSetting(ref lblScore);
+            player.Left = 80;
+
+            #region Add Control to HeroSelection Menu
+
+            foreach (Control h in this.Controls)
+            {
+                if (h.Tag == "HeroSelection")
+                {
+                    heroSelectionList.Add(h);
+                }
+            }
+
+            #endregion
         }
 
         private void IsKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Space && landed == true)
+            if (e.KeyCode == Keys.Space && CharacterProperties.IsGrounded)
             {
-                gravity = -gravity;
-                landed = false;
+                CharacterProperties.Gravity = -(CharacterProperties.Gravity);
+                CharacterProperties.LeaveGround();
+                CharacterProperties.AllowImageConversion();
             }
 
-            if (e.KeyCode == Keys.R)
+            if (gameOver && e.KeyCode == Keys.R)
             {
-                reset();
+                RestartGame();
             }
         }
 
         private void Game_Tick(object sender, EventArgs e)
         {
-            player.Top += gravity;
-            player.Left = 80;
-            lblScore.Text = "Score: " + score;
+            player.Top += CharacterProperties.Gravity;
 
             foreach (Control x in this.Controls)
             {
@@ -55,7 +74,7 @@ namespace BatmanPlatform
                     {
                         x.Left = 500;
                         x.Width = rnd.Next(100, 300);
-                        score++;
+                        UIManager.UpdateScore(ref lblScore, 1);
                     }
                 }
             }
@@ -63,33 +82,87 @@ namespace BatmanPlatform
             if (player.Bounds.IntersectsWith(p2.Bounds) ||
                player.Bounds.IntersectsWith(p1.Bounds))
             {
-                landed = true;
+                CharacterProperties.ReachGround();
                 player.Top = p2.Top - player.Height;
-                player.Image = Properties.Resources.batman_1;
+
+                if(CharacterProperties.AlreadyIsGrounded)
+                {
+                    player.Image = CharacterProperties.HeroImage[0];
+                    CharacterProperties.RestrictImageOverlap();
+                }
             }
 
             if (player.Bounds.IntersectsWith(p3.Bounds) ||
                 player.Bounds.IntersectsWith(p4.Bounds))
             {
-                landed = true;
+                CharacterProperties.ReachGround();
                 player.Top = p3.Top + p3.Height;
-                player.Image = Properties.Resources.batman_2;
+
+                if(CharacterProperties.AlreadyIsGrounded)
+                {
+                    player.Image = CharacterProperties.HeroImage[1];
+                    CharacterProperties.RestrictImageOverlap();
+                }
             }
 
             if (player.Top < -40 || player.Top > ClientSize.Height)
             {
                 gameTimer.Stop();
+                gameOver = true;
                 lblScore.Text += " -- Press R to reset";
             }
         }
 
-        private void reset()
+        #region Handle CharacterCustomization
+
+        private void ChangeVisibilityHeroSelection()
         {
-            score = 0;
+            for (int i=0; i < heroSelectionList.Count; i++)
+            {
+                heroSelectionList[i].Visible = !heroSelectionList[i].Visible;
+
+            }
+
+        }
+
+        private void OnMouseDown_Superman(object sender, MouseEventArgs e)
+        {
+            newHero = CharacterCreation.CreateCustomCharacter(HeroType.Superman);
+        }
+
+        private void OnMouseUp_Superman(object sender, MouseEventArgs e)
+        {
+            ChangeVisibilityHeroSelection();
+            KeyPreview = true;
+            player.Image = CharacterProperties.HeroImage[0];
+            gameTimer.Start();
+        }
+
+        private void OnMouseDown_Batman(object sender, MouseEventArgs e)
+        {
+            newHero = CharacterCreation.CreateCustomCharacter(HeroType.Batman);
+        }
+
+        private void OnMouseUp_Batman(object sender, MouseEventArgs e)
+        {
+            ChangeVisibilityHeroSelection();
+            KeyPreview = true;
+            player.Image = CharacterProperties.HeroImage[0];
+            gameTimer.Start();
+        }
+
+        #endregion
+
+
+        private void RestartGame()
+        {
+            UIManager.Score = 0;
+
             p1.Width = 273;
             p2.Width = 273;
             p3.Width = 273;
             p4.Width = 273;
+
             player.Left = 147;
             player.Top = 131;
 
@@ -105,7 +178,8 @@ namespace BatmanPlatform
             p4.Left = 702;
             p4.Top = 26;
 
-            gameTimer.Start();
+            KeyPreview = false;
+            ChangeVisibilityHeroSelection();
         }
     }
 }

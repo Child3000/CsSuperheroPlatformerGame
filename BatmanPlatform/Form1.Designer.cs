@@ -53,6 +53,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dash = new System.Windows.Forms.PictureBox();
             this.player = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.p1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p3)).BeginInit();
@@ -70,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // lblScore
@@ -144,7 +146,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox1.Location = new System.Drawing.Point(21, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(21, 293);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(985, 297);
             this.pictureBox1.TabIndex = 6;
@@ -358,6 +360,19 @@
             this.player.TabIndex = 24;
             this.player.TabStop = false;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = global::BatmanPlatform.Properties.Resources.SkeletonSwordAttack;
+            this.pictureBox4.Location = new System.Drawing.Point(930, 128);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(100, 60);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 25;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Tag = "Enemy";
+            this.pictureBox4.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -365,6 +380,7 @@
             this.BackgroundImage = global::BatmanPlatform.Properties.Resources.city;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1045, 321);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.selectCatwoman);
@@ -410,6 +426,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dash)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -441,6 +458,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox dash;
         private System.Windows.Forms.PictureBox player;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
 

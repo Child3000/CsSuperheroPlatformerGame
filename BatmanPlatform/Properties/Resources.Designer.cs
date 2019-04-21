@@ -143,6 +143,16 @@ namespace BatmanPlatform.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap explosion {
+            get {
+                object obj = ResourceManager.GetObject("explosion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap flyingBat {
             get {
                 object obj = ResourceManager.GetObject("flyingBat", resourceCulture);
@@ -256,6 +266,36 @@ namespace BatmanPlatform.Properties {
         internal static System.Drawing.Bitmap sexyHeart {
             get {
                 object obj = ResourceManager.GetObject("sexyHeart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SkeletonSwordAttack {
+            get {
+                object obj = ResourceManager.GetObject("SkeletonSwordAttack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap skeletonSwordMove {
+            get {
+                object obj = ResourceManager.GetObject("skeletonSwordMove", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap skeletonSwordStill {
+            get {
+                object obj = ResourceManager.GetObject("skeletonSwordStill", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

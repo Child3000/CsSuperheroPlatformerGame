@@ -18,11 +18,15 @@ namespace BatmanPlatform
         List<Control> heroSelectionList = new List<Control>();
         List<PictureBox> healthVisibleList = new List<PictureBox>();
         List<PictureBox> healthInvisibleList = new List<PictureBox>();
+        List<SmallSkeleton> SmallSkeletonList = new List<SmallSkeleton>();
 
         Timer shootRateTick = new Timer();
         Timer ignoreGravityTick = new Timer();
+        Timer GameTick_FirstLevel = new Timer();
+
         bool allowFire = true;
         bool playerIsDown = true;
+        bool checkingListData = false;
 
         #endregion
 
@@ -34,7 +38,11 @@ namespace BatmanPlatform
         {
             InitializeComponent();
             UIManager.InitializeSetting(ref lblScore);
-            BatmanPlatform.Dash.InitializePlatformSpeed(10);
+
+            LevelManager.InitializeLevel(player);
+            LevelManager.SetFirstLevelProperties();
+
+            Dash.InitializePlatformSpeed(10);
             player.Left = 80;
 
             #region Initialize Timer for Shoot Rate
@@ -48,6 +56,13 @@ namespace BatmanPlatform
 
             ignoreGravityTick.Tick += new EventHandler(tm_ignoreGravityTick);
 
+
+            #endregion
+
+            #region Initialize Timer for First Level
+
+            GameTick_FirstLevel.Interval = 20;
+            GameTick_FirstLevel.Tick += new EventHandler(tm_GameTick_FirstLevel);
 
             #endregion
 
@@ -112,23 +127,62 @@ namespace BatmanPlatform
         {
             player.Top += CharacterProperties.Gravity;
 
+            #region Dash Movement
+
             int heightRatio = playerIsDown ? player.Height / 2 : -player.Height / 3;
             dash.Top = player.Top + heightRatio;
             dash.Left = player.Left - ( player.Width + 20 );
 
+            #endregion
+
             foreach (Control x in this.Controls)
             {
-                if (x is PictureBox && x.Tag == "Platform")
+                if (x is PictureBox)
                 {
-                    x.Left -= BatmanPlatform.Dash.PlatformSpeed;
-
-
-                    if (x.Left < -500)
+                    if (x.Tag == "Platform")
                     {
-                        x.Left = 500;
-                        x.Width = rnd.Next(100, 300);
-                        UIManager.UpdateScore(ref lblScore, 1);
+                        x.Left -= Dash.PlatformSpeed;
+
+
+                        if (x.Left < -500)
+                        {
+                            x.Left = 500;
+                            x.Width = rnd.Next(100, 300);
+                            UIManager.UpdateScore(ref lblScore, 1);
+                        }
                     }
+
+                    if (x.Tag == "Laser")
+                    {
+                        for(int i=0; i < SmallSkeletonList.Count; i++)
+                        {
+                            checkingListData = true;
+                            if (SmallSkeletonList[i].tinySkeleton != null &&
+                                x.Bounds.IntersectsWith(SmallSkeletonList[i].tinySkeleton.Bounds))
+                            {
+                                x.Dispose();
+                                this.Controls.Remove(x);
+
+                                SmallSkeletonList[i].Damaged(CharacterProperties.WeaponDamage);
+
+                                if (SmallSkeletonList[i].isDeath())
+                                {
+                                    SmallSkeletonList.Remove(SmallSkeletonList[i]);
+                                }
+
+                                if(LevelManager.IsLoaded)
+                                {
+                                    GameTick_FirstLevel.Stop();
+                                    LevelLoader();
+                                    GameTick_FirstLevel.Start();
+                                }
+
+                            }
+                        }
+
+                        checkingListData = false;
+                    }
+                    
                 }
             }
 
@@ -208,6 +262,9 @@ namespace BatmanPlatform
             shootRateTick.Interval = CharacterProperties.ShootRate;
             ignoreGravityTick.Interval = BatmanPlatform.Dash.DashPeriod;
             gameTimer.Start();
+            LevelLoader();
+            GameTick_FirstLevel.Start();
+
         }
 
         private void OnMouseDown_Batman(object sender, MouseEventArgs e)
@@ -224,6 +281,8 @@ namespace BatmanPlatform
             shootRateTick.Interval = CharacterProperties.ShootRate;
             ignoreGravityTick.Interval = BatmanPlatform.Dash.DashPeriod;
             gameTimer.Start();
+            LevelLoader();
+            GameTick_FirstLevel.Start();
         }
 
         private void OnMouseDown_Catwoman(object sender, MouseEventArgs e)
@@ -240,6 +299,8 @@ namespace BatmanPlatform
             shootRateTick.Interval = CharacterProperties.ShootRate;
             ignoreGravityTick.Interval = BatmanPlatform.Dash.DashPeriod;
             gameTimer.Start();
+            LevelLoader();
+            GameTick_FirstLevel.Start();
         }
 
         private void OnMouseDown_WonderWoman(object sender, MouseEventArgs e)
@@ -256,6 +317,8 @@ namespace BatmanPlatform
             shootRateTick.Interval = CharacterProperties.ShootRate;
             ignoreGravityTick.Interval = BatmanPlatform.Dash.DashPeriod;
             gameTimer.Start();
+            LevelLoader();
+            GameTick_FirstLevel.Start();
         }
 
         private void OnMouseDown_Speedy(object sender, MouseEventArgs e)
@@ -272,6 +335,8 @@ namespace BatmanPlatform
             shootRateTick.Interval = CharacterProperties.ShootRate;
             ignoreGravityTick.Interval = BatmanPlatform.Dash.DashPeriod;
             gameTimer.Start();
+            LevelLoader();
+            GameTick_FirstLevel.Start();
         }
 
         #endregion
@@ -357,6 +422,9 @@ namespace BatmanPlatform
 
             KeyPreview = false;
             ChangeVisibilityHeroSelection();
+
+            LevelManager.InitializeLevel(player);
+            LevelManager.SetFirstLevelProperties();
         }
 
         private void Shoot()
@@ -380,6 +448,35 @@ namespace BatmanPlatform
         private void ChangeVisibilityDash()
         {
             dash.Visible = !dash.Visible;
+        }
+
+
+        private void LevelLoader()
+        {
+            SmallSkeletonList.Clear();
+
+            for (int i=0; i < LevelManager.GetSmallSkeletonNum(); i++)
+            {
+                SmallSkeletonList.Insert(i, new SmallSkeleton(this));
+            }
+        }
+
+        private void tm_GameTick_FirstLevel(object sender, EventArgs e)
+        {
+
+            for (int i=0; i < SmallSkeletonList.Count; i++)
+            {
+                if (SmallSkeletonList[i].tinySkeleton != null)
+                    SmallSkeletonList[i].FollowPlayer(ref player);
+
+                else
+                {
+                    if(!checkingListData)
+                    {
+                        SmallSkeletonList.RemoveAt(i);
+                    }
+                }
+            }
         }
     }
 }

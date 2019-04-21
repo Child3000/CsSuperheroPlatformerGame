@@ -43,7 +43,7 @@ namespace BatmanPlatform
 
                     UIManager.HeroHealthImage = UIManager.AvailableHealthImage[1];
 
-                    Dash.SetDashPeriod(700);
+                    Dash.SetDashPeriod(400);
                     Dash.SetDashSpeed(17);
                     break;
 
@@ -56,7 +56,7 @@ namespace BatmanPlatform
 
                     UIManager.HeroHealthImage = UIManager.AvailableHealthImage[2];
 
-                    Dash.SetDashPeriod(500);
+                    Dash.SetDashPeriod(200);
                     Dash.SetDashSpeed(20);
 
                     break;
@@ -85,7 +85,7 @@ namespace BatmanPlatform
 
                     UIManager.HeroHealthImage = UIManager.AvailableHealthImage[4];
 
-                    Dash.SetDashPeriod(800);
+                    Dash.SetDashPeriod(300);
                     Dash.SetDashSpeed(15);
                     break;
             }

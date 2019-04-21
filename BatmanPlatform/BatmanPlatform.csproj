@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="CharacterCreation.cs" />
     <Compile Include="CharacterProperties.cs" />
+    <Compile Include="Dash.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,18 +179,6 @@
     <None Include="Resources\flyingBat.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\lightning.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\smoke_1.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\smoke_2.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\highSpeedLaser.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\diamondHeart.png" />
   </ItemGroup>
   <ItemGroup>
@@ -197,6 +186,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\catwoman_beam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\highSpeedLaser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smoke_1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smoke_2.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

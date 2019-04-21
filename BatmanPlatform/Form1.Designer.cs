@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblScore = new System.Windows.Forms.Label();
-            this.player = new System.Windows.Forms.PictureBox();
             this.p1 = new System.Windows.Forms.PictureBox();
             this.p2 = new System.Windows.Forms.PictureBox();
             this.p3 = new System.Windows.Forms.PictureBox();
@@ -52,8 +51,8 @@
             this.selectCatwoman = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
+            this.dash = new System.Windows.Forms.PictureBox();
+            this.player = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.p1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p3)).BeginInit();
@@ -69,7 +68,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.displaySpeedy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dash)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.SuspendLayout();
             // 
             // lblScore
@@ -84,25 +84,14 @@
             this.lblScore.TabIndex = 0;
             this.lblScore.Text = "Score:";
             // 
-            // player
-            // 
-            this.player.BackColor = System.Drawing.Color.Transparent;
-            this.player.Location = new System.Drawing.Point(159, 142);
-            this.player.Margin = new System.Windows.Forms.Padding(4);
-            this.player.Name = "player";
-            this.player.Size = new System.Drawing.Size(80, 75);
-            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.player.TabIndex = 1;
-            this.player.TabStop = false;
-            // 
             // p1
             // 
             this.p1.BackColor = System.Drawing.Color.Transparent;
             this.p1.Image = global::BatmanPlatform.Properties.Resources.platform;
-            this.p1.Location = new System.Drawing.Point(139, 289);
+            this.p1.Location = new System.Drawing.Point(102, 268);
             this.p1.Margin = new System.Windows.Forms.Padding(4);
             this.p1.Name = "p1";
-            this.p1.Size = new System.Drawing.Size(364, 34);
+            this.p1.Size = new System.Drawing.Size(300, 40);
             this.p1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p1.TabIndex = 2;
             this.p1.TabStop = false;
@@ -112,10 +101,10 @@
             // 
             this.p2.BackColor = System.Drawing.Color.Transparent;
             this.p2.Image = global::BatmanPlatform.Properties.Resources.platform;
-            this.p2.Location = new System.Drawing.Point(655, 289);
+            this.p2.Location = new System.Drawing.Point(605, 268);
             this.p2.Margin = new System.Windows.Forms.Padding(4);
             this.p2.Name = "p2";
-            this.p2.Size = new System.Drawing.Size(364, 34);
+            this.p2.Size = new System.Drawing.Size(300, 40);
             this.p2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p2.TabIndex = 3;
             this.p2.TabStop = false;
@@ -125,10 +114,10 @@
             // 
             this.p3.BackColor = System.Drawing.Color.Transparent;
             this.p3.Image = global::BatmanPlatform.Properties.Resources.platform;
-            this.p3.Location = new System.Drawing.Point(405, 32);
+            this.p3.Location = new System.Drawing.Point(304, 13);
             this.p3.Margin = new System.Windows.Forms.Padding(4);
             this.p3.Name = "p3";
-            this.p3.Size = new System.Drawing.Size(364, 34);
+            this.p3.Size = new System.Drawing.Size(300, 40);
             this.p3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p3.TabIndex = 4;
             this.p3.TabStop = false;
@@ -138,10 +127,10 @@
             // 
             this.p4.BackColor = System.Drawing.Color.Transparent;
             this.p4.Image = global::BatmanPlatform.Properties.Resources.platform;
-            this.p4.Location = new System.Drawing.Point(940, 32);
+            this.p4.Location = new System.Drawing.Point(789, 11);
             this.p4.Margin = new System.Windows.Forms.Padding(4);
             this.p4.Name = "p4";
-            this.p4.Size = new System.Drawing.Size(364, 34);
+            this.p4.Size = new System.Drawing.Size(300, 40);
             this.p4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p4.TabIndex = 5;
             this.p4.TabStop = false;
@@ -155,7 +144,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox1.Location = new System.Drawing.Point(21, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(21, 13);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(985, 297);
             this.pictureBox1.TabIndex = 6;
@@ -167,7 +156,7 @@
             this.displayBatman.BackColor = System.Drawing.SystemColors.Control;
             this.displayBatman.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.displayBatman.Image = global::BatmanPlatform.Properties.Resources.selectBatman;
-            this.displayBatman.Location = new System.Drawing.Point(443, 45);
+            this.displayBatman.Location = new System.Drawing.Point(448, 48);
             this.displayBatman.Name = "displayBatman";
             this.displayBatman.Size = new System.Drawing.Size(140, 132);
             this.displayBatman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -180,7 +169,7 @@
             this.displaySuperman.BackColor = System.Drawing.SystemColors.Control;
             this.displaySuperman.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.displaySuperman.Image = global::BatmanPlatform.Properties.Resources.selectSuperman;
-            this.displaySuperman.Location = new System.Drawing.Point(637, 45);
+            this.displaySuperman.Location = new System.Drawing.Point(642, 48);
             this.displaySuperman.Name = "displaySuperman";
             this.displaySuperman.Size = new System.Drawing.Size(140, 132);
             this.displaySuperman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -191,7 +180,7 @@
             // selectBatman
             // 
             this.selectBatman.Font = new System.Drawing.Font("Hobo Std", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectBatman.Location = new System.Drawing.Point(443, 206);
+            this.selectBatman.Location = new System.Drawing.Point(448, 209);
             this.selectBatman.Name = "selectBatman";
             this.selectBatman.Size = new System.Drawing.Size(125, 41);
             this.selectBatman.TabIndex = 9;
@@ -204,7 +193,7 @@
             // selectSuperman
             // 
             this.selectSuperman.Font = new System.Drawing.Font("Hobo Std", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectSuperman.Location = new System.Drawing.Point(637, 206);
+            this.selectSuperman.Location = new System.Drawing.Point(642, 209);
             this.selectSuperman.Name = "selectSuperman";
             this.selectSuperman.Size = new System.Drawing.Size(125, 41);
             this.selectSuperman.TabIndex = 10;
@@ -274,7 +263,7 @@
             this.displaySpeedy.BackColor = System.Drawing.SystemColors.Control;
             this.displaySpeedy.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.displaySpeedy.Image = global::BatmanPlatform.Properties.Resources.selectSpeedy;
-            this.displaySpeedy.Location = new System.Drawing.Point(813, 45);
+            this.displaySpeedy.Location = new System.Drawing.Point(818, 48);
             this.displaySpeedy.Name = "displaySpeedy";
             this.displaySpeedy.Size = new System.Drawing.Size(140, 132);
             this.displaySpeedy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -285,7 +274,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Hobo Std", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(813, 206);
+            this.button1.Location = new System.Drawing.Point(818, 209);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 41);
             this.button1.TabIndex = 17;
@@ -298,7 +287,7 @@
             // selectWonderWoman
             // 
             this.selectWonderWoman.Font = new System.Drawing.Font("Hobo Std", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectWonderWoman.Location = new System.Drawing.Point(246, 205);
+            this.selectWonderWoman.Location = new System.Drawing.Point(251, 208);
             this.selectWonderWoman.Name = "selectWonderWoman";
             this.selectWonderWoman.Size = new System.Drawing.Size(125, 41);
             this.selectWonderWoman.TabIndex = 18;
@@ -311,7 +300,7 @@
             // selectCatwoman
             // 
             this.selectCatwoman.Font = new System.Drawing.Font("Hobo Std", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectCatwoman.Location = new System.Drawing.Point(61, 205);
+            this.selectCatwoman.Location = new System.Drawing.Point(66, 208);
             this.selectCatwoman.Name = "selectCatwoman";
             this.selectCatwoman.Size = new System.Drawing.Size(125, 41);
             this.selectCatwoman.TabIndex = 19;
@@ -326,7 +315,7 @@
             this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox2.Image = global::BatmanPlatform.Properties.Resources.selectWonderWoman;
-            this.pictureBox2.Location = new System.Drawing.Point(246, 45);
+            this.pictureBox2.Location = new System.Drawing.Point(251, 48);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(140, 132);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -339,7 +328,7 @@
             this.pictureBox3.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox3.Image = global::BatmanPlatform.Properties.Resources.selectCatwoman;
-            this.pictureBox3.Location = new System.Drawing.Point(61, 45);
+            this.pictureBox3.Location = new System.Drawing.Point(66, 48);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(140, 132);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -347,16 +336,27 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Tag = "HeroSelection";
             // 
-            // pictureBox4
+            // dash
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = global::BatmanPlatform.Properties.Resources.purpleBeam;
-            this.pictureBox4.Location = new System.Drawing.Point(1032, 127);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(80, 50);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 22;
-            this.pictureBox4.TabStop = false;
+            this.dash.BackColor = System.Drawing.Color.Transparent;
+            this.dash.Location = new System.Drawing.Point(41, 145);
+            this.dash.Name = "dash";
+            this.dash.Size = new System.Drawing.Size(105, 71);
+            this.dash.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.dash.TabIndex = 23;
+            this.dash.TabStop = false;
+            this.dash.Visible = false;
+            // 
+            // player
+            // 
+            this.player.BackColor = System.Drawing.Color.Transparent;
+            this.player.Location = new System.Drawing.Point(119, 128);
+            this.player.Margin = new System.Windows.Forms.Padding(4);
+            this.player.Name = "player";
+            this.player.Size = new System.Drawing.Size(80, 75);
+            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player.TabIndex = 24;
+            this.player.TabStop = false;
             // 
             // Form1
             // 
@@ -365,7 +365,6 @@
             this.BackgroundImage = global::BatmanPlatform.Properties.Resources.city;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1045, 321);
-            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.selectCatwoman);
@@ -386,14 +385,14 @@
             this.Controls.Add(this.p3);
             this.Controls.Add(this.p2);
             this.Controls.Add(this.p1);
-            this.Controls.Add(this.player);
             this.Controls.Add(this.lblScore);
+            this.Controls.Add(this.player);
+            this.Controls.Add(this.dash);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "GravityRun";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.IsKeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p3)).EndInit();
@@ -409,7 +408,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.displaySpeedy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dash)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,7 +418,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblScore;
-        private System.Windows.Forms.PictureBox player;
         private System.Windows.Forms.PictureBox p1;
         private System.Windows.Forms.PictureBox p2;
         private System.Windows.Forms.PictureBox p3;
@@ -440,7 +439,8 @@
         private System.Windows.Forms.Button selectCatwoman;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox dash;
+        private System.Windows.Forms.PictureBox player;
     }
 }
 

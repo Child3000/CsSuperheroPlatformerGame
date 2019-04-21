@@ -20,24 +20,34 @@ namespace BatmanPlatform
         List<PictureBox> healthInvisibleList = new List<PictureBox>();
 
         Timer shootRateTick = new Timer();
+        Timer ignoreGravityTick = new Timer();
         bool allowFire = true;
+        bool playerIsDown = true;
 
         #endregion
 
         Random rnd = new Random();
-        int platformSpeed = 10;
+        
 
 
         public Form1()
         {
             InitializeComponent();
             UIManager.InitializeSetting(ref lblScore);
+            BatmanPlatform.Dash.InitializePlatformSpeed(10);
             player.Left = 80;
 
-            #region Initialize Shoot Rate
+            #region Initialize Timer for Shoot Rate
 
             // Tick is controlled by Condition of Shoot Event   //
             shootRateTick.Tick += new EventHandler(tm_ShootRateTick);
+
+            #endregion
+
+            #region Initialize Timer for Ignoring Gravity
+
+            ignoreGravityTick.Tick += new EventHandler(tm_ignoreGravityTick);
+
 
             #endregion
 
@@ -85,9 +95,15 @@ namespace BatmanPlatform
             }
 
             //  Dash On Air   //    //  After Dash, Push Gravity Down   //
-            if (e.KeyCode == Keys.C && !CharacterProperties.IsGrounded)
+            if (BatmanPlatform.Dash.AllowDash && e.KeyCode == Keys.C && !CharacterProperties.IsGrounded)
             {
-                
+                ChangeVisibilityDash();
+
+                BatmanPlatform.Dash.RestrictDashKey();
+                CharacterProperties.Gravity = 0;
+                ignoreGravityTick.Start();
+
+                BatmanPlatform.Dash.PerformDashAction();
             }
 
         }
@@ -96,11 +112,15 @@ namespace BatmanPlatform
         {
             player.Top += CharacterProperties.Gravity;
 
+            int heightRatio = playerIsDown ? player.Height / 2 : -player.Height / 3;
+            dash.Top = player.Top + heightRatio;
+            dash.Left = player.Left - ( player.Width + 20 );
+
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox && x.Tag == "Platform")
                 {
-                    x.Left -= platformSpeed;
+                    x.Left -= BatmanPlatform.Dash.PlatformSpeed;
 
 
                     if (x.Left < -500)
@@ -120,7 +140,9 @@ namespace BatmanPlatform
 
                 if(CharacterProperties.AlreadyIsGrounded)
                 {
+                    playerIsDown = true;
                     player.Image = CharacterProperties.HeroImage[0];
+                    dash.Image = Dash.DashImage[0];
                     CharacterProperties.RestrictImageOverlap();
                 }
             }
@@ -133,7 +155,9 @@ namespace BatmanPlatform
 
                 if(CharacterProperties.AlreadyIsGrounded)
                 {
+                    playerIsDown = false;
                     player.Image = CharacterProperties.HeroImage[1];
+                    dash.Image = Dash.DashImage[1];
                     CharacterProperties.RestrictImageOverlap();
                 }
             }
@@ -182,6 +206,7 @@ namespace BatmanPlatform
             KeyPreview = true;
             player.Image = CharacterProperties.HeroImage[0];
             shootRateTick.Interval = CharacterProperties.ShootRate;
+            ignoreGravityTick.Interval = BatmanPlatform.Dash.DashPeriod;
             gameTimer.Start();
         }
 
@@ -197,6 +222,7 @@ namespace BatmanPlatform
             KeyPreview = true;
             player.Image = CharacterProperties.HeroImage[0];
             shootRateTick.Interval = CharacterProperties.ShootRate;
+            ignoreGravityTick.Interval = BatmanPlatform.Dash.DashPeriod;
             gameTimer.Start();
         }
 
@@ -212,6 +238,7 @@ namespace BatmanPlatform
             KeyPreview = true;
             player.Image = CharacterProperties.HeroImage[0];
             shootRateTick.Interval = CharacterProperties.ShootRate;
+            ignoreGravityTick.Interval = BatmanPlatform.Dash.DashPeriod;
             gameTimer.Start();
         }
 
@@ -227,6 +254,7 @@ namespace BatmanPlatform
             KeyPreview = true;
             player.Image = CharacterProperties.HeroImage[0];
             shootRateTick.Interval = CharacterProperties.ShootRate;
+            ignoreGravityTick.Interval = BatmanPlatform.Dash.DashPeriod;
             gameTimer.Start();
         }
 
@@ -242,6 +270,7 @@ namespace BatmanPlatform
             KeyPreview = true;
             player.Image = CharacterProperties.HeroImage[0];
             shootRateTick.Interval = CharacterProperties.ShootRate;
+            ignoreGravityTick.Interval = BatmanPlatform.Dash.DashPeriod;
             gameTimer.Start();
         }
 
@@ -339,6 +368,18 @@ namespace BatmanPlatform
         {
             allowFire = true;
             shootRateTick.Stop();
+        }
+
+        private void tm_ignoreGravityTick (object sender, EventArgs e)
+        {
+            ChangeVisibilityDash();
+            CharacterProperties.ResetGravityToDefault();
+            ignoreGravityTick.Stop();
+        }
+
+        private void ChangeVisibilityDash()
+        {
+            dash.Visible = !dash.Visible;
         }
     }
 }

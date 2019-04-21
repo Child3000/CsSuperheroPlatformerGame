@@ -37,6 +37,8 @@ namespace BatmanPlatform
 
         private static int gravity;
 
+        private static int defaultGravity;
+
         private static float weaponSpeed;
 
         private static bool isGrounded;
@@ -62,6 +64,7 @@ namespace BatmanPlatform
         {
             health = 0;
             gravity = 0;
+            defaultGravity = 0;
             weaponSpeed = 0.0f;
             weaponDamage = 0;
             shootRate = 1000;
@@ -70,6 +73,9 @@ namespace BatmanPlatform
 
             type = HeroType.Unknown;
             weapon = Weapon.Unknown;
+
+            Dash.DashImage[0] = Properties.Resources.smoke_1;
+            Dash.DashImage[1] = Properties.Resources.smoke_2;
         }
 
         public static Bitmap[] HeroImage
@@ -165,6 +171,16 @@ namespace BatmanPlatform
         }
 
 
+        public static void ResetGravityToDefault()
+        {
+            gravity = defaultGravity;
+        }
+
+        public static void SetDefaultGravityValue( int value)
+        {
+            defaultGravity = value;
+            gravity = value;
+        }
 
         public static void ReverseGravity()
         {

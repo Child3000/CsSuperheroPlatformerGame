@@ -152,6 +152,30 @@ namespace BatmanPlatform
                         }
                     }
 
+
+                    for (int i = 0; i < SmallSkeletonList.Count; i++)
+                    {
+                        if (SmallSkeletonList[i].tinySkeleton != null &&
+                            SmallSkeletonList[i].IsDamagePlayer)
+                        {
+                            // Manual control the behaviour //
+
+                            CharacterProperties.UpdateHealth(1, ref healthVisibleList, ref healthInvisibleList);
+                            SmallSkeletonList[i].MoveSpeed = 0;
+                            SmallSkeletonList[i].IsDamagePlayer = false;
+                            SmallSkeletonList[i].tinySkeleton.Image = Properties.Resources.explosion;
+                            SmallSkeletonList[i].AnimateExplosionTimer.Start();
+                            LevelManager.ReduceSmallSkeletonNum();
+                            SmallSkeletonList.Remove(SmallSkeletonList[i]);
+
+                            if (CharacterProperties.isDeath())
+                            {
+                                GameOver();
+                            }
+                        }
+
+                    }
+
                     if (x.Tag == "Laser")
                     {
                         for(int i=0; i < SmallSkeletonList.Count; i++)
@@ -170,17 +194,19 @@ namespace BatmanPlatform
                                     SmallSkeletonList.Remove(SmallSkeletonList[i]);
                                 }
 
-                                if(LevelManager.IsLoaded)
-                                {
-                                    GameTick_FirstLevel.Stop();
-                                    LevelLoader();
-                                    GameTick_FirstLevel.Start();
-                                }
-
                             }
                         }
 
                         checkingListData = false;
+                    }
+
+                    if (LevelManager.IsLoaded)
+                    {
+                        GameTick_FirstLevel.Stop();
+                        LevelLoader();
+                        GameTick_FirstLevel.Start();
+
+                        LevelManager.IsLoaded = false;
                     }
                     
                 }
@@ -222,8 +248,7 @@ namespace BatmanPlatform
 
                 if (CharacterProperties.isDeath())
                 {
-                    gameTimer.Stop();
-                    lblScore.Text += " -- Press R to reset";
+                    GameOver();
                 }
 
                 else
@@ -244,6 +269,8 @@ namespace BatmanPlatform
             {
                 heroSelectionList[i].Visible = !heroSelectionList[i].Visible;
 
+                if (!(heroSelectionList[i].Name == "blackCanvas"))
+                    heroSelectionList[i].BringToFront();
             }
 
         }
@@ -264,6 +291,8 @@ namespace BatmanPlatform
             gameTimer.Start();
             LevelLoader();
             GameTick_FirstLevel.Start();
+
+
 
         }
 
@@ -453,11 +482,30 @@ namespace BatmanPlatform
 
         private void LevelLoader()
         {
+            Clear();
+
             SmallSkeletonList.Clear();
 
-            for (int i=0; i < LevelManager.GetSmallSkeletonNum(); i++)
+            for (int i=0; i < LevelManager.GetDefaultSkeletonNum(); i++)
             {
                 SmallSkeletonList.Insert(i, new SmallSkeleton(this));
+            }
+        }
+
+        private void GameOver()
+        {
+            gameTimer.Stop();
+            GameTick_FirstLevel.Stop();
+            Clear();
+            lblScore.Text += " -- Press R to reset";
+        }
+
+        private void Clear()
+        {
+            for (int i = 0; i < SmallSkeletonList.Count; i++)
+            {
+                if (SmallSkeletonList[i].tinySkeleton != null)
+                    SmallSkeletonList[i].SelfDestroy();
             }
         }
 

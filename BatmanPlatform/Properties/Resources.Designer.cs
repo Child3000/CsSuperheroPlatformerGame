@@ -283,6 +283,16 @@ namespace BatmanPlatform.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SkeletonSwordDamaged {
+            get {
+                object obj = ResourceManager.GetObject("SkeletonSwordDamaged", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap skeletonSwordMove {
             get {
                 object obj = ResourceManager.GetObject("skeletonSwordMove", resourceCulture);

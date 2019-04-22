@@ -14,13 +14,18 @@ namespace BatmanPlatform
 
         public PictureBox tinySkeleton = new PictureBox();
 
-        Timer AnimateExplosionTimer = new Timer();
+        public Timer AnimateExplosionTimer = new Timer();
         Timer ChangeStateTimer = new Timer();
+
         Random rnd = new Random();
 
         bool isAnimationWork = false;
         bool isSmall = false;
+        bool isDamageAnimationWorking = false;
+        bool isDamagePlayer = false;
+        int damageAnimateCount = 0;
         int stateCount = 0;
+        int ranNum = -1;
 
 
         public SmallSkeleton(Form form)
@@ -58,28 +63,51 @@ namespace BatmanPlatform
             if (player.Left + player.Width * 2 < tinySkeleton.Left)
                 tinySkeleton.Left -= MoveSpeed;
 
-            if (player.Top < tinySkeleton.Top)
+            else
+            {
+                if (MoveSpeed != 0)
+                    isDamagePlayer = true;
+            }
+
+            if (player.Top < tinySkeleton.Top && tinySkeleton.Top > 20)
                 tinySkeleton.Top -= MoveSpeed;
 
-            if (player.Top > tinySkeleton.Top)
+            if (player.Top > tinySkeleton.Top && tinySkeleton.Top + tinySkeleton.Height < 230)
                 tinySkeleton.Top += MoveSpeed;
         }
+
         public bool isDeath()
         {
             return Health <= 0 ? true : false;
         }
 
+        public bool IsDamagePlayer
+        {
+            set { isDamagePlayer = value; }
+            get { return isDamagePlayer; }
+        }
 
-        public void Damaged (int damageValue )
+
+        public void Damaged (int damageValue)
         {
             Health -= damageValue;
+            tinySkeleton.Image = Properties.Resources.SkeletonSwordDamaged;
+
+            if (isSmall)
+            {
+                ChangeImageBackToNormal();
+            }
+            isDamageAnimationWorking = true;
 
             if (Health <= 0)
             {
                 Health = 0;
                 LevelManager.ReduceSmallSkeletonNum();
+
                 tinySkeleton.Image = Properties.Resources.explosion;
                 tinySkeleton.BringToFront();
+                // form.Controls.Remove(tinySkeleton);
+
                 AnimateExplosionTimer.Start();
             }
         }
@@ -106,19 +134,30 @@ namespace BatmanPlatform
 
         private void tm_ChangeStateTick(object sender, EventArgs e)
         {
+            if (isDamageAnimationWorking)
+            {
+                damageAnimateCount++;
+
+                if (damageAnimateCount == 1)
+                {
+                    isDamageAnimationWorking = false;
+                    damageAnimateCount = 0;
+                }
+            }
+
             /* Idle */
             if (stateCount == 1)
             {
-                tinySkeleton.Image = Properties.Resources.skeletonSwordStill;
-                
-                if (isSmall)
+                if(!isDamageAnimationWorking)
                 {
-                    tinySkeleton.Height = tinySkeleton.Height - 60;
-                    tinySkeleton.Width = tinySkeleton.Width - 60;
-                    tinySkeleton.Left += 30;
-                    tinySkeleton.Top += 40;
-                    isSmall = false;
+                    tinySkeleton.Image = Properties.Resources.skeletonSwordStill;
+
+                    if (isSmall)
+                    {
+                        ChangeImageBackToNormal();
+                    }
                 }
+                
                 MoveSpeed = 0;
                 stateCount = 0;
             }
@@ -126,25 +165,41 @@ namespace BatmanPlatform
             /* Move or Attack */
             else
             {
-                int ranNum = rnd.Next(0, 2);
+                ranNum = rnd.Next(0, 2);
 
                 if(ranNum == 1)
                 {
-                    tinySkeleton.Image = Properties.Resources.SkeletonSwordAttack;
-                    tinySkeleton.Height = tinySkeleton.Height + 60;
-                    tinySkeleton.Width = tinySkeleton.Width + 60 ;
-                    tinySkeleton.Left -= 30;
-                    tinySkeleton.Top -= 40;
-                    isSmall = true;
+                    if (!isDamageAnimationWorking)
+                    {
+                        tinySkeleton.Image = Properties.Resources.SkeletonSwordAttack;
+                        tinySkeleton.Height = tinySkeleton.Height + 60;
+                        tinySkeleton.Width = tinySkeleton.Width + 60;
+                        tinySkeleton.Left -= 30;
+                        tinySkeleton.Top -= 40;
+                        isSmall = true;
+                    }
+                   
                 }
                 else
                 {
+                    if (!isDamageAnimationWorking)
+                        tinySkeleton.Image = Properties.Resources.skeletonSwordMove;
+
                     SetDefaultMoveSpeed();
                 }
                 
 
                 stateCount = 1;
             }
+        }
+
+        private void ChangeImageBackToNormal()
+        {
+            tinySkeleton.Height = tinySkeleton.Height - 60;
+            tinySkeleton.Width = tinySkeleton.Width - 60;
+            tinySkeleton.Left += 30;
+            tinySkeleton.Top += 40;
+            isSmall = false;
         }
     }
 }

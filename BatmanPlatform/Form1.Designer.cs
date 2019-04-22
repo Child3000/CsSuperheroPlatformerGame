@@ -35,7 +35,7 @@
             this.p3 = new System.Windows.Forms.PictureBox();
             this.p4 = new System.Windows.Forms.PictureBox();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.blackCanvas = new System.Windows.Forms.PictureBox();
             this.displayBatman = new System.Windows.Forms.PictureBox();
             this.displaySuperman = new System.Windows.Forms.PictureBox();
             this.selectBatman = new System.Windows.Forms.Button();
@@ -58,7 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.p2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blackCanvas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.displayBatman)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.displaySuperman)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Heart_0)).BeginInit();
@@ -143,15 +143,15 @@
             this.gameTimer.Interval = 20;
             this.gameTimer.Tick += new System.EventHandler(this.Game_Tick);
             // 
-            // pictureBox1
+            // blackCanvas
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox1.Location = new System.Drawing.Point(21, 293);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(985, 297);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Tag = "HeroSelection";
+            this.blackCanvas.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.blackCanvas.Location = new System.Drawing.Point(21, 11);
+            this.blackCanvas.Name = "blackCanvas";
+            this.blackCanvas.Size = new System.Drawing.Size(985, 297);
+            this.blackCanvas.TabIndex = 6;
+            this.blackCanvas.TabStop = false;
+            this.blackCanvas.Tag = "HeroSelection";
             // 
             // displayBatman
             // 
@@ -380,23 +380,23 @@
             this.BackgroundImage = global::BatmanPlatform.Properties.Resources.city;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1045, 321);
-            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.selectCatwoman);
             this.Controls.Add(this.selectWonderWoman);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.displaySpeedy);
+            this.Controls.Add(this.selectSuperman);
+            this.Controls.Add(this.selectBatman);
+            this.Controls.Add(this.displaySuperman);
+            this.Controls.Add(this.displayBatman);
+            this.Controls.Add(this.blackCanvas);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.Heart_4);
             this.Controls.Add(this.Heart_3);
             this.Controls.Add(this.Heart_2);
             this.Controls.Add(this.Heart_1);
             this.Controls.Add(this.Heart_0);
-            this.Controls.Add(this.selectSuperman);
-            this.Controls.Add(this.selectBatman);
-            this.Controls.Add(this.displaySuperman);
-            this.Controls.Add(this.displayBatman);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.p4);
             this.Controls.Add(this.p3);
             this.Controls.Add(this.p2);
@@ -413,7 +413,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.p2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blackCanvas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.displayBatman)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.displaySuperman)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Heart_0)).EndInit();
@@ -440,7 +440,7 @@
         private System.Windows.Forms.PictureBox p3;
         private System.Windows.Forms.PictureBox p4;
         private System.Windows.Forms.Timer gameTimer;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox blackCanvas;
         private System.Windows.Forms.PictureBox displayBatman;
         private System.Windows.Forms.PictureBox displaySuperman;
         private System.Windows.Forms.Button selectBatman;

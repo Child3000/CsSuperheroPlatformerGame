@@ -13,6 +13,8 @@ namespace BatmanPlatform
 
         private static int smallSkeletonNum;
 
+        private static int defaultSkeletonNum;
+
         private static int skeletonHealth;
 
         private static int skeletonSpeed;
@@ -42,12 +44,18 @@ namespace BatmanPlatform
 
         public static bool IsLoaded
         {
+            set { isLoaded = value; }
             get { return isLoaded; }
         }
 
         public static int GetSmallSkeletonNum()
         {
             return smallSkeletonNum;
+        }
+
+        public static int GetDefaultSkeletonNum()
+        {
+            return defaultSkeletonNum;
         }
 
         public static void ReduceSmallSkeletonNum()
@@ -57,6 +65,9 @@ namespace BatmanPlatform
             if(smallSkeletonNum <= 0)
             {
                 level++;
+
+                if (level == 4)
+                    level = 1;
                 SetLevelProperties();
             }
         }
@@ -89,27 +100,34 @@ namespace BatmanPlatform
                     SetThridLevelProperties();
                     isLoaded = true;
                     break;
+                case 4:
+                    // win
+
+                    break;
             }
         }
 
         public static void SetFirstLevelProperties()
         {
             smallSkeletonNum = 1;
-            skeletonHealth = 1;
+            defaultSkeletonNum = smallSkeletonNum;
+            skeletonHealth = 100;
             skeletonSpeed = 1;
         }
 
         private static void SetSecondLevelProperties()
         {
             smallSkeletonNum = 2;
-            skeletonHealth = 3;
+            defaultSkeletonNum = smallSkeletonNum;
+            skeletonHealth = 200;
             skeletonSpeed = 2;
         }
 
         private static void SetThridLevelProperties()
         {
             smallSkeletonNum = 3;
-            skeletonHealth = 5;
+            defaultSkeletonNum = smallSkeletonNum;
+            skeletonHealth = 300;
             skeletonSpeed = 3;
         }
 

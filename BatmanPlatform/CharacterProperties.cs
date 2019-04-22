@@ -248,8 +248,8 @@ namespace BatmanPlatform
                 case Weapon.FlyingBat:
 
                     specialAbilityImage = Properties.Resources.flyingBat;
-                    weaponSpeed = 12.0f;
-                    weaponDamage = 3;   // Lowest Damage
+                    weaponSpeed = 30.0f;
+                    weaponDamage = 15;   // Lowest Damage
                     shootRate = 500;    // fast
                     break;
 
@@ -257,7 +257,7 @@ namespace BatmanPlatform
 
                     specialAbilityImage = Properties.Resources.highSpeedLaser;
                     weaponSpeed = 20.0f;
-                    weaponDamage = 5;   // Normal Damage
+                    weaponDamage = 20;   // Normal Damage
                     shootRate = 400;    // fastest
                     break;
 
@@ -265,7 +265,7 @@ namespace BatmanPlatform
 
                     specialAbilityImage = Properties.Resources.lightning;
                     weaponSpeed = 10.0f;
-                    weaponDamage = 12;  // Highest Damage
+                    weaponDamage = 50;  // Highest Damage
                     shootRate = 1500;   // slowest
                     break;
 
@@ -273,7 +273,7 @@ namespace BatmanPlatform
 
                     specialAbilityImage = Properties.Resources.purpleBeam;
                     weaponSpeed = 25.0f;
-                    weaponDamage = 7;   // High Damage
+                    weaponDamage = 30;   // High Damage
                     shootRate = 1000;   // normal
                     break;
             }

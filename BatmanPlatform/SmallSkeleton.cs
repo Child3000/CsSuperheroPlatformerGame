@@ -60,7 +60,7 @@ namespace BatmanPlatform
                 isAnimationWork = false;
             }
 
-            if (player.Left + player.Width * 2 < tinySkeleton.Left)
+            if (player.Left + player.Width < tinySkeleton.Left)
                 tinySkeleton.Left -= MoveSpeed;
 
             else
@@ -69,7 +69,7 @@ namespace BatmanPlatform
                     isDamagePlayer = true;
             }
 
-            if (player.Top < tinySkeleton.Top && tinySkeleton.Top > 20)
+            if (player.Top < tinySkeleton.Top && tinySkeleton.Top > 30)
                 tinySkeleton.Top -= MoveSpeed;
 
             if (player.Top > tinySkeleton.Top && tinySkeleton.Top + tinySkeleton.Height < 230)

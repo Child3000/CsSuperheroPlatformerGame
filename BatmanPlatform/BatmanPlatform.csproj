@@ -143,9 +143,6 @@
     <None Include="Resources\superman_1.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\blackHeart.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\glassHeart.png" />
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +213,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SkeletonSwordDamaged.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shield.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nightbackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nightbackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blackHeart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\batman_health.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\batman_weapon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

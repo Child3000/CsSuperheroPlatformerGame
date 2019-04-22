@@ -28,6 +28,8 @@ namespace BatmanPlatform
         bool playerIsDown = true;
         bool checkingListData = false;
 
+
+
         #endregion
 
         Random rnd = new Random();
@@ -122,10 +124,18 @@ namespace BatmanPlatform
             }
 
         }
-
+        
         private void Game_Tick(object sender, EventArgs e)
         {
             player.Top += CharacterProperties.Gravity;
+            lblLevel.Text = "Level: " + LevelManager.Level;
+
+            UIManager.ChangeBackgroundImage(this);
+
+            if (CharacterProperties.IsVulnerable)
+                lblShield.Visible = true;
+            else
+                lblShield.Visible = false;
 
             #region Dash Movement
 

@@ -45,6 +45,8 @@ namespace BatmanPlatform
 
         private static bool alreadyIsGrounded;
 
+        private static bool isVulnerable;
+
         private static int weaponDamage;
 
         private static int shootRate;   // Counted in milliseconds
@@ -52,6 +54,8 @@ namespace BatmanPlatform
         private static HeroType type;
 
         private static Weapon weapon;
+
+        private static Timer VulnerableTimer = new Timer();
 
         private static Bitmap[] heroImage = new Bitmap[2];
 
@@ -70,12 +74,16 @@ namespace BatmanPlatform
             shootRate = 1000;
             isGrounded = false;
             alreadyIsGrounded = true;
+            isVulnerable = false;
 
             type = HeroType.Unknown;
             weapon = Weapon.Unknown;
 
             Dash.DashImage[0] = Properties.Resources.smoke_1;
             Dash.DashImage[1] = Properties.Resources.smoke_2;
+
+            VulnerableTimer.Interval = 3000;
+            VulnerableTimer.Tick += new EventHandler(tm_VulnerableTimer);
         }
 
         public static Bitmap[] HeroImage
@@ -165,6 +173,11 @@ namespace BatmanPlatform
             get { return alreadyIsGrounded; }
         }
 
+        public static bool IsVulnerable
+        {
+            get { return isVulnerable; }
+        }
+
         public static int MIN_HEALTH
         {
             get { return CONST_MIN_HEALTH; }
@@ -209,26 +222,38 @@ namespace BatmanPlatform
 
         public static void UpdateHealth(int value, ref List<PictureBox> healthVisibleList, ref List<PictureBox> healthInvisibleList)
         {
-            health -= value;
+            if(!isVulnerable)
+            {
+                health -= value;
+                isVulnerable = true;
 
-            if (healthVisibleList.Count >= value)
-            {
-                for (int i = 0; i < value; i++)
+                if (healthVisibleList.Count >= value)
                 {
-                    healthInvisibleList[healthVisibleList.Count - 1] = healthVisibleList[healthVisibleList.Count - 1];
-                    healthInvisibleList[healthVisibleList.Count - 1].Visible = false;
-                    healthVisibleList.RemoveAt(healthVisibleList.Count - 1);
+                    for (int i = 0; i < value; i++)
+                    {
+                        healthInvisibleList[healthVisibleList.Count - 1] = healthVisibleList[healthVisibleList.Count - 1];
+                        healthInvisibleList[healthVisibleList.Count - 1].Visible = false;
+                        healthVisibleList.RemoveAt(healthVisibleList.Count - 1);
+                    }
                 }
-            }
-            else
-            {
-                for (int i = 0; i < healthVisibleList.Count; i++)
+                else
                 {
-                    healthInvisibleList[healthVisibleList.Count - 1] = healthVisibleList[healthVisibleList.Count - 1];
-                    healthInvisibleList[healthVisibleList.Count - 1].Visible = false;
-                    healthVisibleList.RemoveAt(healthVisibleList.Count - 1);
+                    for (int i = 0; i < healthVisibleList.Count; i++)
+                    {
+                        healthInvisibleList[healthVisibleList.Count - 1] = healthVisibleList[healthVisibleList.Count - 1];
+                        healthInvisibleList[healthVisibleList.Count - 1].Visible = false;
+                        healthVisibleList.RemoveAt(healthVisibleList.Count - 1);
+                    }
                 }
+
+                VulnerableTimer.Start();
             }
+        }
+
+        private static void tm_VulnerableTimer(object sender, EventArgs e)
+        {
+            isVulnerable = false;
+            VulnerableTimer.Stop();
         }
 
         public static bool isDeath()
@@ -247,7 +272,7 @@ namespace BatmanPlatform
             {
                 case Weapon.FlyingBat:
 
-                    specialAbilityImage = Properties.Resources.flyingBat;
+                    specialAbilityImage = Properties.Resources.batman_weapon;
                     weaponSpeed = 30.0f;
                     weaponDamage = 15;   // Lowest Damage
                     shootRate = 500;    // fast

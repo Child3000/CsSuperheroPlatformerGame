@@ -66,7 +66,7 @@ namespace BatmanPlatform
             {
                 level++;
 
-                if (level == 4)
+                if (level == 7)
                     level = 1;
                 SetLevelProperties();
             }
@@ -101,8 +101,23 @@ namespace BatmanPlatform
                     isLoaded = true;
                     break;
                 case 4:
-                    // win
+                    SetForthLevelProperties();
+                    isLoaded = true;
+                    break;
 
+                case 5:
+                    SetFifthLevelProperties();
+                    isLoaded = true;
+                    break;
+
+                case 6:
+                    SetSixthLevelProperties();
+                    isLoaded = true;
+                    break;
+
+                case 7:
+                    SetSeventhLevelProperties();
+                    isLoaded = true;
                     break;
             }
         }
@@ -111,26 +126,57 @@ namespace BatmanPlatform
         {
             smallSkeletonNum = 1;
             defaultSkeletonNum = smallSkeletonNum;
-            skeletonHealth = 100;
+            skeletonHealth = 10;
             skeletonSpeed = 1;
         }
 
         private static void SetSecondLevelProperties()
         {
-            smallSkeletonNum = 2;
+            smallSkeletonNum = 3;
             defaultSkeletonNum = smallSkeletonNum;
-            skeletonHealth = 200;
-            skeletonSpeed = 2;
+            skeletonHealth = 30;
+            skeletonSpeed = 1;
         }
 
         private static void SetThridLevelProperties()
         {
             smallSkeletonNum = 3;
             defaultSkeletonNum = smallSkeletonNum;
-            skeletonHealth = 300;
-            skeletonSpeed = 3;
+            skeletonHealth = 80;
+            skeletonSpeed = 1;
         }
 
+        private static void SetForthLevelProperties()
+        {
+            smallSkeletonNum = 2;
+            defaultSkeletonNum = smallSkeletonNum;
+            skeletonHealth = 100;
+            skeletonSpeed = 2;
+        }
+
+        private static void SetFifthLevelProperties()
+        {
+            smallSkeletonNum = 1;
+            defaultSkeletonNum = smallSkeletonNum;
+            skeletonHealth = 300;
+            skeletonSpeed = 2;
+        }
+
+        private static void SetSixthLevelProperties()
+        {
+            smallSkeletonNum = 5;
+            defaultSkeletonNum = smallSkeletonNum;
+            skeletonHealth = 300;
+            skeletonSpeed = 2;
+        }
+
+        private static void SetSeventhLevelProperties()
+        {
+            smallSkeletonNum = 3;
+            defaultSkeletonNum = smallSkeletonNum;
+            skeletonHealth = 1000;
+            skeletonSpeed = 2;
+        }
     }
     
 }

@@ -54,6 +54,8 @@
             this.dash = new System.Windows.Forms.PictureBox();
             this.player = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lblLevel = new System.Windows.Forms.Label();
+            this.lblShield = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.p1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p3)).BeginInit();
@@ -72,17 +74,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.dash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblShield)).BeginInit();
             this.SuspendLayout();
             // 
             // lblScore
             // 
             this.lblScore.AutoSize = true;
             this.lblScore.BackColor = System.Drawing.Color.Transparent;
-            this.lblScore.Font = new System.Drawing.Font("Luckiest Guy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScore.Location = new System.Drawing.Point(16, 11);
+            this.lblScore.Font = new System.Drawing.Font("Luckiest Guy", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.ForeColor = System.Drawing.Color.White;
+            this.lblScore.Location = new System.Drawing.Point(417, 9);
             this.lblScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(75, 25);
+            this.lblScore.Size = new System.Drawing.Size(88, 30);
             this.lblScore.TabIndex = 0;
             this.lblScore.Text = "Score:";
             // 
@@ -116,10 +120,10 @@
             // 
             this.p3.BackColor = System.Drawing.Color.Transparent;
             this.p3.Image = global::BatmanPlatform.Properties.Resources.platform;
-            this.p3.Location = new System.Drawing.Point(304, 13);
+            this.p3.Location = new System.Drawing.Point(304, 56);
             this.p3.Margin = new System.Windows.Forms.Padding(4);
             this.p3.Name = "p3";
-            this.p3.Size = new System.Drawing.Size(300, 40);
+            this.p3.Size = new System.Drawing.Size(300, 41);
             this.p3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p3.TabIndex = 4;
             this.p3.TabStop = false;
@@ -129,10 +133,10 @@
             // 
             this.p4.BackColor = System.Drawing.Color.Transparent;
             this.p4.Image = global::BatmanPlatform.Properties.Resources.platform;
-            this.p4.Location = new System.Drawing.Point(789, 11);
+            this.p4.Location = new System.Drawing.Point(789, 54);
             this.p4.Margin = new System.Windows.Forms.Padding(4);
             this.p4.Name = "p4";
-            this.p4.Size = new System.Drawing.Size(300, 40);
+            this.p4.Size = new System.Drawing.Size(300, 41);
             this.p4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p4.TabIndex = 5;
             this.p4.TabStop = false;
@@ -146,7 +150,7 @@
             // blackCanvas
             // 
             this.blackCanvas.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.blackCanvas.Location = new System.Drawing.Point(21, 11);
+            this.blackCanvas.Location = new System.Drawing.Point(52, 244);
             this.blackCanvas.Name = "blackCanvas";
             this.blackCanvas.Size = new System.Drawing.Size(985, 297);
             this.blackCanvas.TabIndex = 6;
@@ -208,7 +212,7 @@
             // Heart_0
             // 
             this.Heart_0.BackColor = System.Drawing.Color.Transparent;
-            this.Heart_0.Location = new System.Drawing.Point(980, 273);
+            this.Heart_0.Location = new System.Drawing.Point(7, 8);
             this.Heart_0.Name = "Heart_0";
             this.Heart_0.Size = new System.Drawing.Size(46, 36);
             this.Heart_0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -219,7 +223,7 @@
             // Heart_1
             // 
             this.Heart_1.BackColor = System.Drawing.Color.Transparent;
-            this.Heart_1.Location = new System.Drawing.Point(934, 273);
+            this.Heart_1.Location = new System.Drawing.Point(52, 8);
             this.Heart_1.Name = "Heart_1";
             this.Heart_1.Size = new System.Drawing.Size(46, 36);
             this.Heart_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -230,7 +234,7 @@
             // Heart_2
             // 
             this.Heart_2.BackColor = System.Drawing.Color.Transparent;
-            this.Heart_2.Location = new System.Drawing.Point(888, 273);
+            this.Heart_2.Location = new System.Drawing.Point(97, 8);
             this.Heart_2.Name = "Heart_2";
             this.Heart_2.Size = new System.Drawing.Size(46, 36);
             this.Heart_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -241,7 +245,7 @@
             // Heart_3
             // 
             this.Heart_3.BackColor = System.Drawing.Color.Transparent;
-            this.Heart_3.Location = new System.Drawing.Point(842, 272);
+            this.Heart_3.Location = new System.Drawing.Point(142, 7);
             this.Heart_3.Name = "Heart_3";
             this.Heart_3.Size = new System.Drawing.Size(46, 36);
             this.Heart_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -252,7 +256,7 @@
             // Heart_4
             // 
             this.Heart_4.BackColor = System.Drawing.Color.Transparent;
-            this.Heart_4.Location = new System.Drawing.Point(796, 273);
+            this.Heart_4.Location = new System.Drawing.Point(187, 7);
             this.Heart_4.Name = "Heart_4";
             this.Heart_4.Size = new System.Drawing.Size(46, 36);
             this.Heart_4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -373,6 +377,30 @@
             this.pictureBox4.Tag = "Enemy";
             this.pictureBox4.Visible = false;
             // 
+            // lblLevel
+            // 
+            this.lblLevel.AutoSize = true;
+            this.lblLevel.BackColor = System.Drawing.Color.Transparent;
+            this.lblLevel.Font = new System.Drawing.Font("Hobo Std", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLevel.ForeColor = System.Drawing.Color.White;
+            this.lblLevel.Location = new System.Drawing.Point(867, 6);
+            this.lblLevel.Name = "lblLevel";
+            this.lblLevel.Size = new System.Drawing.Size(121, 40);
+            this.lblLevel.TabIndex = 26;
+            this.lblLevel.Text = "Level: 1";
+            // 
+            // lblShield
+            // 
+            this.lblShield.BackColor = System.Drawing.Color.Transparent;
+            this.lblShield.Image = global::BatmanPlatform.Properties.Resources.shield;
+            this.lblShield.Location = new System.Drawing.Point(232, 7);
+            this.lblShield.Name = "lblShield";
+            this.lblShield.Size = new System.Drawing.Size(37, 36);
+            this.lblShield.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.lblShield.TabIndex = 27;
+            this.lblShield.TabStop = false;
+            this.lblShield.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -391,6 +419,8 @@
             this.Controls.Add(this.displaySuperman);
             this.Controls.Add(this.displayBatman);
             this.Controls.Add(this.blackCanvas);
+            this.Controls.Add(this.lblShield);
+            this.Controls.Add(this.lblLevel);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.Heart_4);
             this.Controls.Add(this.Heart_3);
@@ -407,7 +437,6 @@
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "GravityRun";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.IsKeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.p1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2)).EndInit();
@@ -427,6 +456,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dash)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblShield)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,6 +489,8 @@
         private System.Windows.Forms.PictureBox dash;
         private System.Windows.Forms.PictureBox player;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label lblLevel;
+        private System.Windows.Forms.PictureBox lblShield;
     }
 }
 

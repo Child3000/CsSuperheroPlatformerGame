@@ -39,6 +39,10 @@ namespace BatmanPlatform
         public Form1()
         {
             InitializeComponent();
+
+            MusicPlayer.SettingUpMusicProperties();
+            MusicPlayer.PlayBackgroundMusic();
+
             UIManager.InitializeSetting(ref lblScore);
 
             LevelManager.InitializeLevel(player);
@@ -127,6 +131,7 @@ namespace BatmanPlatform
         
         private void Game_Tick(object sender, EventArgs e)
         {
+
             player.Top += CharacterProperties.Gravity;
             lblLevel.Text = "Level: " + LevelManager.Level;
 
@@ -301,7 +306,7 @@ namespace BatmanPlatform
             gameTimer.Start();
             LevelLoader();
             GameTick_FirstLevel.Start();
-
+            UIManager.gameOver = false;
 
 
         }
@@ -322,6 +327,7 @@ namespace BatmanPlatform
             gameTimer.Start();
             LevelLoader();
             GameTick_FirstLevel.Start();
+            UIManager.gameOver = false;
         }
 
         private void OnMouseDown_Catwoman(object sender, MouseEventArgs e)
@@ -340,6 +346,7 @@ namespace BatmanPlatform
             gameTimer.Start();
             LevelLoader();
             GameTick_FirstLevel.Start();
+            UIManager.gameOver = false;
         }
 
         private void OnMouseDown_WonderWoman(object sender, MouseEventArgs e)
@@ -358,6 +365,7 @@ namespace BatmanPlatform
             gameTimer.Start();
             LevelLoader();
             GameTick_FirstLevel.Start();
+            UIManager.gameOver = false;
         }
 
         private void OnMouseDown_Speedy(object sender, MouseEventArgs e)
@@ -376,6 +384,7 @@ namespace BatmanPlatform
             gameTimer.Start();
             LevelLoader();
             GameTick_FirstLevel.Start();
+            UIManager.gameOver = false;
         }
 
         #endregion
@@ -469,6 +478,7 @@ namespace BatmanPlatform
         private void Shoot()
         {
             Laser laser = new Laser(player, this);
+            MusicPlayer.PlayShootSound();
         }
 
         private void tm_ShootRateTick(object sender, EventArgs e)
@@ -504,9 +514,11 @@ namespace BatmanPlatform
 
         private void GameOver()
         {
+            
             gameTimer.Stop();
             GameTick_FirstLevel.Stop();
             Clear();
+            MusicPlayer.PlayGameOverSound();
             lblScore.Text += " -- Press R to reset";
         }
 

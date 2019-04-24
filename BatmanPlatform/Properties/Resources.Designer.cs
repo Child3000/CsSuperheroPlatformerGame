@@ -151,6 +151,15 @@ namespace BatmanPlatform.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream enemyHit {
+            get {
+                return ResourceManager.GetStream("enemyHit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap evilHeart {
@@ -171,12 +180,40 @@ namespace BatmanPlatform.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream explosionSound {
+            get {
+                return ResourceManager.GetStream("explosionSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] explosionT_T {
+            get {
+                object obj = ResourceManager.GetObject("explosionT_T", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap flyingBat {
             get {
                 object obj = ResourceManager.GetObject("flyingBat", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream gameover {
+            get {
+                return ResourceManager.GetStream("gameover", resourceCulture);
             }
         }
         
@@ -191,6 +228,16 @@ namespace BatmanPlatform.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] laser {
+            get {
+                object obj = ResourceManager.GetObject("laser", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap lightning {
@@ -201,12 +248,95 @@ namespace BatmanPlatform.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] mreduceHealth {
+            get {
+                object obj = ResourceManager.GetObject("mreduceHealth", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] mShortSadLeave {
+            get {
+                object obj = ResourceManager.GetObject("mShortSadLeave", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap nightbackground {
             get {
                 object obj = ResourceManager.GetObject("nightbackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream phaserUp1 {
+            get {
+                return ResourceManager.GetStream("phaserUp1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream phaserUp2 {
+            get {
+                return ResourceManager.GetStream("phaserUp2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream phaserUp3 {
+            get {
+                return ResourceManager.GetStream("phaserUp3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream phaserUp4 {
+            get {
+                return ResourceManager.GetStream("phaserUp4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream phaserUp5 {
+            get {
+                return ResourceManager.GetStream("phaserUp5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream phaserUp6 {
+            get {
+                return ResourceManager.GetStream("phaserUp6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream phaserUp7 {
+            get {
+                return ResourceManager.GetStream("phaserUp7", resourceCulture);
             }
         }
         
@@ -407,6 +537,16 @@ namespace BatmanPlatform.Properties {
             get {
                 object obj = ResourceManager.GetObject("superman_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] targetdestroy {
+            get {
+                object obj = ResourceManager.GetObject("targetdestroy", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

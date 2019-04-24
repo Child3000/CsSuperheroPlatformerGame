@@ -56,6 +56,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lblLevel = new System.Windows.Forms.Label();
             this.lblShield = new System.Windows.Forms.PictureBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.p1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p3)).BeginInit();
@@ -150,9 +151,9 @@
             // blackCanvas
             // 
             this.blackCanvas.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.blackCanvas.Location = new System.Drawing.Point(52, 244);
+            this.blackCanvas.Location = new System.Drawing.Point(-6, 6);
             this.blackCanvas.Name = "blackCanvas";
-            this.blackCanvas.Size = new System.Drawing.Size(985, 297);
+            this.blackCanvas.Size = new System.Drawing.Size(1054, 318);
             this.blackCanvas.TabIndex = 6;
             this.blackCanvas.TabStop = false;
             this.blackCanvas.Tag = "HeroSelection";
@@ -491,6 +492,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lblLevel;
         private System.Windows.Forms.PictureBox lblShield;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

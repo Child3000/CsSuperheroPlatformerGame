@@ -59,6 +59,7 @@
     <Compile Include="Hero.cs" />
     <Compile Include="Laser.cs" />
     <Compile Include="LevelManager.cs" />
+    <Compile Include="MusicPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmallSkeleton.cs" />
@@ -231,6 +232,60 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\batman_weapon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mlaser.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\highUp.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phaserUp1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phaserUp2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phaserUp3.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phaserUp4.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phaserUp5.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phaserUp6.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phaserUp7.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\explosion.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\highDown %28online-audio-converter.com%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reduceHealth.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\game_over %28online-audio-converter.com%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\war_target_destroyed %28online-audio-converter.com%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mreduceHealth.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mpwar_target_destroyed %28online-audio-converter.com%29.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\explosion %28online-audio-converter.com%29.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mShortSadLeave.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

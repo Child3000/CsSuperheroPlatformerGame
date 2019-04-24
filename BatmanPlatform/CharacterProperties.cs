@@ -225,6 +225,7 @@ namespace BatmanPlatform
             if(!isVulnerable)
             {
                 health -= value;
+                MusicPlayer.PlayReduceHealthSound();
                 isVulnerable = true;
 
                 if (healthVisibleList.Count >= value)

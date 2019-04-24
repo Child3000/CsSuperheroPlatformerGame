@@ -91,6 +91,7 @@ namespace BatmanPlatform
         public void Damaged (int damageValue)
         {
             Health -= damageValue;
+            MusicPlayer.PlayZombieHitSound();
             tinySkeleton.Image = Properties.Resources.SkeletonSwordDamaged;
 
             if (isSmall)
@@ -104,6 +105,7 @@ namespace BatmanPlatform
                 Health = 0;
                 LevelManager.ReduceSmallSkeletonNum();
 
+                MusicPlayer.PlayExplosionSound();
                 tinySkeleton.Image = Properties.Resources.explosion;
                 tinySkeleton.BringToFront();
                 // form.Controls.Remove(tinySkeleton);

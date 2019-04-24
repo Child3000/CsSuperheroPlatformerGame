@@ -67,7 +67,12 @@ namespace BatmanPlatform
                 level++;
 
                 if (level == 7)
+                {
+                    MusicPlayer.PlayTargetDestroySound();
                     level = 1;
+                }
+
+                MusicPlayer.PlayLevelSound(level -1 );
                 SetLevelProperties();
             }
         }

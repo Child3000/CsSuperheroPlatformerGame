@@ -4,6 +4,9 @@
 Controller
 
 Z - Shoot
+
 C - Dash in the air
+
 Space - Jump
+
 R - Restart Game
